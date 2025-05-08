@@ -12,11 +12,11 @@ const About = () => {
           <PageHeader title="About Me" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Profile Image */}
+            {/* Profile Image - Updated with attached image */}
             <div className="flex justify-center md:justify-end animate-fade-up">
-              <div className="rounded-full overflow-hidden w-64 h-64 md:w-80 md:h-80 border-4 border-skyblue shadow-lg">
+              <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
                 <img 
-                  src="https://randomuser.me/api/portraits/men/36.jpg" 
+                  src="/3b2f1b16-b0e8-4c06-9549-79713b7fa1e0.jfif" 
                   alt="Sibusiso Botya" 
                   className="w-full h-full object-cover"
                 />
