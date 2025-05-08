@@ -18,7 +18,9 @@ const Home = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-up");
-          entry.target.style.opacity = "1";
+          if (entry.target instanceof HTMLElement) {
+            entry.target.style.opacity = "1";
+          }
           observer.unobserve(entry.target);
         }
       });

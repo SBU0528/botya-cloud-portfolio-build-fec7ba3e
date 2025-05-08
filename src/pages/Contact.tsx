@@ -1,9 +1,10 @@
+
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
-import { Mail, Phone, Linkedin, GitHub } from "lucide-react";
+import { Mail, Phone, Linkedin, Github } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
@@ -149,7 +150,7 @@ const Contact = () => {
                   
                   <div className="flex items-start">
                     <div className="bg-skyblue p-3 rounded-full mr-4">
-                      <GitHub className="h-6 w-6 text-white" />
+                      <Github className="h-6 w-6 text-white" />
                     </div>
                     <div>
                       <h4 className="font-medium text-lg mb-1">GitHub</h4>
