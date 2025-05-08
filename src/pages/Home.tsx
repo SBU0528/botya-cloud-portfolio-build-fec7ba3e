@@ -25,10 +25,18 @@ const Home = () => {
     }, observerOptions);
 
     const hiddenElements = document.querySelectorAll(".initially-hidden");
-    hiddenElements.forEach((el) => observer.observe(el));
+    hiddenElements.forEach((el) => {
+      if (el instanceof HTMLElement) {
+        observer.observe(el);
+      }
+    });
 
     return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
+      hiddenElements.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          observer.unobserve(el);
+        }
+      });
     };
   }, []);
 

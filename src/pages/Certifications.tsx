@@ -109,9 +109,9 @@ const Certifications = () => {
           {/* Certifications Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCertifications.map((cert, index) => (
-              <Card 
+              <div 
                 key={index}
-                className="p-6 animate-fade-up"
+                className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 p-6 animate-fade-up"
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
                 <div className="flex items-start mb-4">
@@ -143,7 +143,7 @@ const Certifications = () => {
                     Show Credential <ExternalLink className="ml-1" size={16} />
                   </a>
                 )}
-              </Card>
+              </div>
             ))}
           </div>
           

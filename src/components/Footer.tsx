@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { GitHub, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,7 +45,7 @@ const Footer = () => {
                   aria-label="GitHub"
                   className="hover:text-skyblue transition-colors duration-200"
                 >
-                  <GitHub size={20} />
+                  <Github size={20} />
                 </a>
               </div>
             </div>
