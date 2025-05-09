@@ -56,6 +56,7 @@ const Footer = () => {
                 <ul className="flex justify-center md:justify-start space-x-4">
                   <li><Link to="/" className="text-sm hover:text-skyblue transition-colors duration-200">Home</Link></li>
                   <li><Link to="/about" className="text-sm hover:text-skyblue transition-colors duration-200">About</Link></li>
+                  <li><Link to="/certifications" className="text-sm hover:text-skyblue transition-colors duration-200">Certifications</Link></li>
                   <li><Link to="/contact" className="text-sm hover:text-skyblue transition-colors duration-200">Contact</Link></li>
                 </ul>
               </nav>

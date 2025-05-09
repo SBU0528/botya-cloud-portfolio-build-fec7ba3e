@@ -16,8 +16,8 @@ const Section = ({
   padding = "lg" 
 }: SectionProps) => {
   const bgColors = {
-    white: "bg-white",
-    gray: "bg-softgray"
+    white: "bg-white dark:bg-gray-900",
+    gray: "bg-softgray dark:bg-gray-800"
   };
   
   const paddingClasses = {

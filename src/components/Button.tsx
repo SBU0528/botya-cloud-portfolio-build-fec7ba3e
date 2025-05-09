@@ -22,9 +22,9 @@ const Button = ({
   const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
   
   const variants = {
-    primary: "bg-skyblue text-white hover:bg-navy",
-    outline: "border border-white text-white hover:bg-white hover:text-navy",
-    ghost: "text-navy hover:bg-softgray hover:text-navy"
+    primary: "bg-skyblue text-white hover:bg-navy dark:hover:bg-skyblue/80",
+    outline: "border border-white text-white hover:bg-white hover:text-navy dark:border-skyblue dark:hover:bg-skyblue/20",
+    ghost: "text-navy dark:text-white hover:bg-softgray dark:hover:bg-gray-800 hover:text-navy dark:hover:text-white"
   };
   
   const sizes = {

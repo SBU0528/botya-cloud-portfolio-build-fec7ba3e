@@ -56,7 +56,7 @@ const Home = () => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-time-lapse-of-the-blue-sky-with-clouds-4270-large.mp4" type="video/mp4" />
+            <source src="https://cdn.coverr.co/videos/coverr-cloudscape-2602/1080p.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
