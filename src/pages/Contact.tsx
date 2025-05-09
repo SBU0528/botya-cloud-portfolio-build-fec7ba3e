@@ -202,41 +202,6 @@ const Contact = () => {
             </div>
           </div>
         </Section>
-        
-        {/* AWS Deployment Info Section */}
-        <Section background="gray" padding="lg">
-          <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 animate-fade-up">
-            <h2 className="text-2xl font-bold font-montserrat text-navy mb-6">AWS Deployment Guide</h2>
-            <p className="text-gray-700 mb-6">
-              This portfolio website is built with React and can be deployed to AWS through either S3 static website hosting or AWS Amplify. Below are the steps for both methods:
-            </p>
-            
-            <div className="mb-8">
-              <h3 className="text-xl font-bold text-navy mb-4">Option 1: AWS S3 Static Website Hosting</h3>
-              <ol className="list-decimal list-inside space-y-3 text-gray-700">
-                <li><span className="font-medium">Build your React application:</span> Run <code className="bg-gray-100 px-2 py-1 rounded">npm run build</code> to create a production build.</li>
-                <li><span className="font-medium">Create an S3 bucket:</span> In the AWS Management Console, navigate to S3 and create a new bucket. Use your domain name as the bucket name.</li>
-                <li><span className="font-medium">Configure bucket for static website hosting:</span> In the bucket properties, enable "Static website hosting" and specify "index.html" as both the index and error document.</li>
-                <li><span className="font-medium">Set bucket permissions:</span> Update the bucket policy to allow public read access.</li>
-                <li><span className="font-medium">Upload your files:</span> Upload the contents of your build folder to the S3 bucket.</li>
-                <li><span className="font-medium">Set up CloudFront (optional):</span> Create a CloudFront distribution pointing to your S3 bucket for better performance and HTTPS.</li>
-              </ol>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-bold text-navy mb-4">Option 2: AWS Amplify Deployment (Recommended)</h3>
-              <ol className="list-decimal list-inside space-y-3 text-gray-700">
-                <li><span className="font-medium">Log in to AWS Console:</span> Navigate to AWS Amplify service.</li>
-                <li><span className="font-medium">Create a new app:</span> Click "New app" and choose "Deploy without Git provider" for manual deployment.</li>
-                <li><span className="font-medium">Configure build settings:</span> Choose a name for your app and configure the build settings.</li>
-                <li><span className="font-medium">Build your React application:</span> Run <code className="bg-gray-100 px-2 py-1 rounded">npm run build</code> locally.</li>
-                <li><span className="font-medium">Upload the build:</span> Zip your build folder and upload it through the Amplify console.</li>
-                <li><span className="font-medium">Deploy:</span> Complete the deployment process and your site will be live on an Amplify URL.</li>
-                <li><span className="font-medium">Custom domain (optional):</span> Configure a custom domain in the Amplify console if desired.</li>
-              </ol>
-            </div>
-          </div>
-        </Section>
       </div>
     </Layout>
   );
