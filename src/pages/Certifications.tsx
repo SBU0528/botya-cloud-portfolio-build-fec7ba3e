@@ -12,7 +12,7 @@ interface Certification {
   date: string;
   id: string;
   skills: string[];
-  link?: string;
+  link: string;
 }
 
 const Certifications = () => {
@@ -25,7 +25,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "HCFGE4BL7FQI",
       skills: ["Cross‑Cultural Communication Skills"],
-      link: "#"
+      link: "https://coursera.org/verify/HCFGE4BL7FQI"
     },
     {
       title: "Cloud Computing Foundations",
@@ -33,7 +33,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "QH200NTBBIPJ",
       skills: ["Cloud Infrastructure"],
-      link: "#"
+      link: "https://coursera.org/verify/QH200NTBBIPJ"
     },
     {
       title: "Introduction to Cloud Computing",
@@ -41,7 +41,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "4FLIYFX5KSN5",
       skills: ["Cloud Computing", "Cloud Infrastructure"],
-      link: "#"
+      link: "https://coursera.org/verify/4FLIYFX5KSN5"
     },
     {
       title: "Introduction to Hardware and Operating Systems",
@@ -49,7 +49,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "0AY0X7JIOQ83",
       skills: ["Computer Hardware Troubleshooting", "Hardware Installation", "Networking", "Operating Systems"],
-      link: "#"
+      link: "https://coursera.org/verify/0AY0X7JIOQ83"
     },
     {
       title: "Introduction to Networking and Cloud Computing",
@@ -57,7 +57,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "NFHAM0TBZEFR",
       skills: ["Cloud Computing", "Networking and Cloud Computing"],
-      link: "#"
+      link: "https://coursera.org/verify/NFHAM0TBZEFR"
     },
     {
       title: "Verbal Communications and Presentation Skills",
@@ -65,7 +65,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "NNTM0DJMU6Y9",
       skills: ["Oral Communication", "Speech", "Verbal Behavior", "Communication Training"],
-      link: "#"
+      link: "https://coursera.org/verify/NNTM0DJMU6Y9"
     },
     {
       title: "Write Professional Emails in English",
@@ -73,7 +73,7 @@ const Certifications = () => {
       date: "Mar 2025",
       id: "CDI63MS6WCY6",
       skills: ["Email Communications", "Professional Writing"],
-      link: "#"
+      link: "https://coursera.org/verify/CDI63MS6WCY6"
     }
   ];
 
@@ -133,16 +133,14 @@ const Certifications = () => {
                     ))}
                   </div>
                 </div>
-                {cert.link && (
-                  <a 
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-skyblue hover:text-navy transition-colors"
-                  >
-                    Show Credential <ExternalLink className="ml-1" size={16} />
-                  </a>
-                )}
+                <a 
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-skyblue hover:text-navy transition-colors"
+                >
+                  Show Credential <ExternalLink className="ml-1" size={16} />
+                </a>
               </div>
             ))}
           </div>

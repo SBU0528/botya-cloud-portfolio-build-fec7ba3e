@@ -12,12 +12,12 @@ const About = () => {
           <PageHeader title="About Me" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Profile Image - Updated with attached image */}
+            {/* Profile Image */}
             <div className="flex justify-center md:justify-end animate-fade-up">
               <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
                 <img 
                   src="/3b2f1b16-b0e8-4c06-9549-79713b7fa1e0.jfif" 
-                  alt="Sibusiso Botya" 
+                  alt="Sibusiso Botya - Cloud Associate" 
                   className="w-full h-full object-cover"
                 />
               </div>

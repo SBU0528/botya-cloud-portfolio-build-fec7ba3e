@@ -123,10 +123,10 @@ const Contact = () => {
                     <div>
                       <h4 className="font-medium text-lg mb-1">Email</h4>
                       <a
-                        href="mailto:sibusiso.botya@example.com"
+                        href="mailto:botyasibusiso@gmail.com"
                         className="text-gray-300 hover:text-skyblue transition-colors"
                       >
-                        sibusiso.botya@example.com
+                        botyasibusiso@gmail.com
                       </a>
                     </div>
                   </div>
@@ -138,12 +138,12 @@ const Contact = () => {
                     <div>
                       <h4 className="font-medium text-lg mb-1">LinkedIn</h4>
                       <a
-                        href="https://linkedin.com/in/sibusiso-botya"
+                        href="https://linkedin.com/in/sibusiso-botya-7a807224a"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-skyblue transition-colors"
                       >
-                        linkedin.com/in/sibusiso-botya
+                        linkedin.com/in/sibusiso-botya-7a807224a
                       </a>
                     </div>
                   </div>
@@ -171,7 +171,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-lg mb-1">Phone</h4>
-                      <p className="text-gray-300">+27 XX XXX XXXX</p>
+                      <p className="text-gray-300">+27 76 621 7977</p>
                     </div>
                   </div>
                   
@@ -182,7 +182,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-medium text-lg mb-1">WhatsApp</h4>
                       <a
-                        href="https://wa.me/27XXXXXXXXX"
+                        href="https://wa.me/27766217977"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-skyblue transition-colors"
