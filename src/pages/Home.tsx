@@ -49,6 +49,14 @@ const Home = () => {
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-navy/70 z-10"></div>
+          
+          {/* Rain Overlay Animation */}
+          <div className="rain-container absolute inset-0 z-5 opacity-30 pointer-events-none">
+            <div className="rain rain-front"></div>
+            <div className="rain rain-middle"></div>
+            <div className="rain rain-back"></div>
+          </div>
+          
           <video
             autoPlay
             loop
@@ -117,10 +125,6 @@ const Home = () => {
           <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-navy mb-6">
             Welcome to my portfolio – where passion for IT meets the power of cloud innovation. Explore my journey, certifications, and the skills I bring to shape the digital future.
           </h3>
-          <p className="text-lg text-gray-600 mb-8">
-            Let's connect and explore how my expertise can benefit your projects
-          </p>
-          <Button href="/contact">Get In Touch</Button>
         </div>
       </Section>
     </>

@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
-import { Mail, Phone, Linkedin, Github, Smartphone } from "lucide-react";
+import { Mail, Phone, Linkedin, Github } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
@@ -172,23 +172,6 @@ const Contact = () => {
                     <div>
                       <h4 className="font-medium text-lg mb-1">Phone</h4>
                       <p className="text-gray-300">+27 76 621 7977</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-skyblue p-3 rounded-full mr-4">
-                      <Smartphone className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-lg mb-1">WhatsApp</h4>
-                      <a
-                        href="https://wa.me/27766217977"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-skyblue transition-colors"
-                      >
-                        Message on WhatsApp
-                      </a>
                     </div>
                   </div>
                 </div>
