@@ -192,12 +192,6 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-                
-                <div className="mt-12">
-                  <h4 className="font-medium text-lg mb-4">Office Hours</h4>
-                  <p className="text-gray-300 mb-2">Monday - Friday: 9:00 AM - 5:00 PM</p>
-                  <p className="text-gray-300">Based in Cape Town, South Africa</p>
-                </div>
               </div>
             </div>
           </div>

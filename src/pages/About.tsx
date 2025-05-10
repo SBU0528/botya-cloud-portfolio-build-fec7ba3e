@@ -17,7 +17,7 @@ const About = () => {
               <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
                 <img 
                   src="/3b2f1b16-b0e8-4c06-9549-79713b7fa1e0.jfif" 
-                  alt="Sibusiso Botya - Cloud Associate" 
+                  alt="Sibusiso Botya Portrait" 
                   className="w-full h-full object-cover"
                 />
               </div>
