@@ -20,6 +20,22 @@ const Certifications = () => {
   
   const certifications: Certification[] = [
     {
+      title: "Generative AI: Introduction and Applications",
+      issuer: "IBM",
+      date: "May 2025",
+      id: "5C55GRQPEBVI",
+      skills: ["Generative AI", "Artificial Intelligence"],
+      link: "https://coursera.org/verify/5C55GRQPEBVI"
+    },
+    {
+      title: "Generative AI: Prompt Engineering Basics",
+      issuer: "IBM",
+      date: "May 2025",
+      id: "N8SY1TUKJWCU",
+      skills: ["Prompt Engineering", "Generative AI"],
+      link: "https://coursera.org/verify/N8SY1TUKJWCU"
+    },
+    {
       title: "Active Listening: Enhancing Communication Skills",
       issuer: "Coursera Instructor Network",
       date: "Mar 2025",

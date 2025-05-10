@@ -25,7 +25,7 @@ const Education = () => {
     },
     {
       type: 'work',
-      period: '2024 - Present',
+      period: '2024 - 2025',
       title: 'Cloud Associate',
       organization: 'CAPACITI',
       description: 'Working with cloud technologies to design, implement, and maintain scalable and secure cloud infrastructure solutions.',
