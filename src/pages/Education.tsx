@@ -2,37 +2,11 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
+import InteractiveTimeline from "@/components/InteractiveTimeline";
 import { GraduationCap, Briefcase, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface TimelineItem {
-  type: 'education' | 'work';
-  period: string;
-  title: string;
-  organization: string;
-  description: string;
-  current?: boolean;
-}
-
 const Education = () => {
-  const timelineItems: TimelineItem[] = [
-    {
-      type: 'education',
-      period: '2023 - 2024',
-      title: 'A+, Network+, CCNA Bundle',
-      organization: 'Optimi College',
-      description: 'Comprehensive online program covering computer hardware, networking fundamentals, and Cisco networking technologies. Successfully completed with certification.',
-    },
-    {
-      type: 'work',
-      period: '2024 - 2025',
-      title: 'Cloud Associate',
-      organization: 'CAPACITI',
-      description: 'Working with cloud technologies to design, implement, and maintain scalable and secure cloud infrastructure solutions.',
-      current: true
-    }
-  ];
-
   return (
     <Layout>
       <div className="pt-24 md:pt-28">
@@ -42,52 +16,8 @@ const Education = () => {
             subtitle="My academic journey and professional development in IT and cloud computing"
           />
           
-          {/* Timeline */}
-          <div className="max-w-3xl mx-auto mt-12 relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gray-200"></div>
-            
-            {timelineItems.map((item, index) => (
-              <div 
-                key={index}
-                className={cn(
-                  "relative mb-16 md:mb-24 animate-fade-up",
-                  index % 2 === 0 ? "md:pr-10 md:text-right md:ml-auto md:mr-1/2" : "md:pl-10 md:ml-1/2"
-                )}
-                style={{ animationDelay: `${0.2 * index}s` }}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-[-8px] md:left-[50%] md:transform md:-translate-x-1/2 top-0 w-4 h-4 rounded-full bg-skyblue border-4 border-white"></div>
-                
-                {/* Content box */}
-                <div className={cn(
-                  "bg-white rounded-lg shadow-md p-6 ml-6 md:ml-0 relative",
-                  item.current ? "border-l-4 border-skyblue" : ""
-                )}>
-                  {/* Type icon */}
-                  <div className="absolute -top-4 left-4 md:left-auto md:right-4 bg-white rounded-full p-2 shadow-md">
-                    {item.type === 'education' ? (
-                      <GraduationCap className="text-skyblue" size={24} />
-                    ) : (
-                      <Briefcase className="text-skyblue" size={24} />
-                    )}
-                  </div>
-                  
-                  {/* Period */}
-                  <div className="flex items-center mb-3 text-gray-500">
-                    <Calendar size={16} className="mr-2" />
-                    <span>{item.period}</span>
-                    {item.current && <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Current</span>}
-                  </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-xl font-bold font-montserrat text-navy mb-1">{item.title}</h3>
-                  <h4 className="text-lg text-skyblue mb-3">{item.organization}</h4>
-                  <p className="text-gray-700">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Interactive Timeline */}
+          <InteractiveTimeline />
         </Section>
         
         {/* Skills Development */}

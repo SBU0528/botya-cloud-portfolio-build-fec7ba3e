@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
+import SkillsRadarChart from "@/components/SkillsRadarChart";
 import { cn } from "@/lib/utils";
 
 const Home = () => {
@@ -77,6 +78,9 @@ const Home = () => {
           <h2 className="text-xl md:text-3xl font-montserrat text-white mb-12 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Cloud Associate at CAPACITI | Driving Innovations in Cloud Computing
           </h2>
+          <p className="text-lg md:text-xl text-white mb-12 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            Welcome to my portfolio — where passion for IT meets cloud innovation. Explore my journey and discover how I'm shaping the digital future.
+          </p>
           <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <Button variant="outline" size="lg" href="/certifications">
               Explore My Work <ChevronRight className="ml-2 h-5 w-5" />
@@ -119,8 +123,24 @@ const Home = () => {
         </div>
       </Section>
 
+      {/* Skills Visualization Section */}
+      <Section background="gray" padding="lg">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-4 initially-hidden opacity-0">
+            Technical Skills
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto initially-hidden opacity-0">
+            Hover over the chart to explore my proficiency in various cloud technologies
+          </p>
+        </div>
+        
+        <div className="initially-hidden opacity-0">
+          <SkillsRadarChart />
+        </div>
+      </Section>
+
       {/* Call to Action */}
-      <Section background="gray" padding="md" className="text-center">
+      <Section background="white" padding="md" className="text-center">
         <div className="max-w-3xl mx-auto initially-hidden opacity-0">
           <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-navy mb-6">
             Welcome to my portfolio – where passion for IT meets the power of cloud innovation. Explore my journey, certifications, and the skills I bring to shape the digital future.
