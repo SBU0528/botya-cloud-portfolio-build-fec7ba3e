@@ -64,10 +64,10 @@ const Home = () => {
         {/* Hero Content */}
         <div className="container mx-auto px-4 text-center relative z-20">
           <h1 className="text-5xl md:text-7xl font-bold font-montserrat text-white mb-6 animate-fade-up drop-shadow-lg">
-            Empowering Innovation in the Cloud
+            Sibusiso Botya
           </h1>
-          <h2 className="text-xl md:text-3xl font-montserrat text-white mb-12 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            As a Cloud Associate at CAPACITI, I transform complex infrastructure into agile, scalable solutions. Welcome to my portfolio.
+          <h2 className="text-xl md:text-3xl font-montserrat text-white mb-12 animate-fade-up drop-shadow-md" style={{ animationDelay: '0.2s' }}>
+            As a Cloud Associate at CAPACITI, I transform complex infrastructure into agile, scalable solutions.
           </h2>
           <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <Button variant="outline" size="lg" href="/certifications">
@@ -130,4 +130,3 @@ const Home = () => {
 };
 
 export default Home;
-
