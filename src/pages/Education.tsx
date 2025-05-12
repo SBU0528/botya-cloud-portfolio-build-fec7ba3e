@@ -2,12 +2,39 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import InteractiveTimeline from "@/components/InteractiveTimeline";
-import { GraduationCap, Briefcase, Calendar, ExternalLink } from "lucide-react";
+import { GraduationCap, Briefcase, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
+import { useEffect, useRef } from "react";
 
 const Education = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Set up intersection observer for animation
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -100px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-up");
+          entry.target.classList.remove("opacity-0");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Select timeline items to observe
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    timelineItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      timelineItems.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
+
   return (
     <Layout>
       <div className="pt-24 md:pt-28">
@@ -17,78 +44,104 @@ const Education = () => {
             subtitle="My academic journey and professional development in IT and cloud computing"
           />
           
-          {/* Interactive Timeline */}
-          <InteractiveTimeline />
-        </Section>
-        
-        {/* Certification Badges */}
-        <Section background="white" padding="lg">
-          <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center animate-fade-up">
-            Certifications
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                title: "Active Listening: Enhancing Communication Skills",
-                issuer: "Coursera Instructor Network",
-                date: "Mar 2025",
-                id: "HCFGE4BL7FQI",
-                url: "https://coursera.org/verify/HCFGE4BL7FQI"
-              },
-              {
-                title: "Cloud Computing Foundations",
-                issuer: "Duke University",
-                date: "Mar 2025",
-                id: "QH200NTBBIPJ",
-                url: "https://coursera.org/verify/QH200NTBBIPJ"
-              },
-              {
-                title: "Introduction to Cloud Computing",
-                issuer: "United Latino Students Association",
-                date: "Mar 2025",
-                id: "4FLIYFX5KSN5",
-                url: "https://coursera.org/verify/4FLIYFX5KSN5"
-              },
-              {
-                title: "Hardware and Operating System Essentials",
-                issuer: "Coursera/IBM",
-                date: "Mar 2025",
-                id: "c53a019f‑6a93‑48ae‑9a87‑fda6caba2022",
-                url: "https://www.credly.com/badges/c53a019f-6a93-48ae-9a87-fda6caba2022"
-              },
-              {
-                title: "AWS Cloud Quest: Cloud Practitioner",
-                issuer: "AWS",
-                date: "Apr 2025",
-                id: "751c8db2-0c01-457d-82e7-8d73aa65aab7",
-                url: "https://www.credly.com/badges/751c8db2-0c01-457d-82e7-8d73aa65aab7"
-              }
-            ].map((cert, index) => (
-              <div 
-                key={index} 
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all animate-fade-up"
-                style={{ animationDelay: `${0.1 * index}s` }}
-              >
-                <h3 className="text-lg font-bold font-montserrat text-navy mb-2">{cert.title}</h3>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  <Badge variant="secondary" className="bg-softgray text-gray-700">{cert.issuer}</Badge>
-                  <Badge variant="outline" className="border-skyblue text-skyblue">{cert.date}</Badge>
+          {/* Timeline Section */}
+          <div className="px-4 md:px-10 max-w-full mx-auto py-12" ref={timelineRef}>
+            <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center">
+              My Journey
+            </h2>
+            
+            <div className="relative">
+              {/* Center line - visible on desktop only */}
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+              
+              {/* Timeline items */}
+              <div className="space-y-12 md:space-y-24 relative">
+                {/* Item 1 - IT Journey Begins */}
+                <div className="timeline-item opacity-0 md:flex md:justify-end md:pr-[52%] md:odd:justify-start md:odd:pl-[52%] md:odd:pr-4">
+                  <div className={cn(
+                    "bg-white p-6 rounded-lg shadow-md relative z-10 border-l-4 border-skyblue",
+                    "md:border-l-0 md:even:border-r-4 md:w-full"
+                  )}>
+                    {/* Timeline dot - desktop */}
+                    <div className="hidden md:flex absolute top-6 -right-11 md:odd:-left-11 md:odd:right-auto w-6 h-6 rounded-full bg-skyblue items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-white"></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-blue-50 rounded-full md:order-1">
+                        <GraduationCap size={28} className="text-skyblue" />
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-skyblue text-lg font-semibold">2018</span>
+                        <h3 className="text-xl font-bold mt-1 mb-2 text-navy">IT Journey Begins</h3>
+                        <p className="text-gray-600">
+                          Started exploring IT fundamentals through self-study and online resources, developing a passion for technology.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-gray-600 text-sm mb-3">ID: {cert.id}</p>
-                <a 
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-skyblue hover:text-navy transition-colors text-sm"
-                >
-                  Verify Certificate <ExternalLink className="ml-1" size={14} />
-                </a>
+                
+                {/* Item 2 - Optimi College */}
+                <div className="timeline-item opacity-0 md:flex md:justify-start md:pl-[52%] md:even:justify-end md:even:pr-[52%] md:even:pl-4">
+                  <div className={cn(
+                    "bg-white p-6 rounded-lg shadow-md relative z-10 border-l-4 border-skyblue",
+                    "md:border-l-0 md:odd:border-l-4 md:odd:border-r-0 md:w-full"
+                  )}>
+                    {/* Timeline dot - desktop */}
+                    <div className="hidden md:flex absolute top-6 -left-11 md:even:-right-11 md:even:left-auto w-6 h-6 rounded-full bg-skyblue items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-white"></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-blue-50 rounded-full">
+                        <Calendar size={28} className="text-skyblue" />
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-skyblue text-lg font-semibold">2023 - 2024</span>
+                        <h3 className="text-xl font-bold mt-1 mb-2 text-navy">A+, Network+, CCNA Bundle</h3>
+                        <p className="text-gray-600">
+                          Comprehensive online program covering computer hardware, networking fundamentals, and Cisco networking technologies.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Item 3 - CAPACITI */}
+                <div className="timeline-item opacity-0 md:flex md:justify-end md:pr-[52%] md:odd:justify-start md:odd:pl-[52%] md:odd:pr-4">
+                  <div className={cn(
+                    "bg-white p-6 rounded-lg shadow-md relative z-10 border-l-4 border-skyblue",
+                    "md:border-l-0 md:even:border-r-4 md:w-full"
+                  )}>
+                    {/* Timeline dot - desktop */}
+                    <div className="hidden md:flex absolute top-6 -right-11 md:odd:-left-11 md:odd:right-auto w-6 h-6 rounded-full bg-skyblue items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-white"></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-blue-50 rounded-full md:order-1">
+                        <Briefcase size={28} className="text-skyblue" />
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-skyblue text-lg font-semibold">2025 - Present</span>
+                        <h3 className="text-xl font-bold mt-1 mb-2 text-navy">Cloud Associate</h3>
+                        <p className="text-gray-600">
+                          Working with cloud technologies to design, implement, and maintain scalable and secure cloud infrastructure solutions.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </Section>
         
-        {/* Skills Development */}
+        {/* Professional Development Section */}
         <Section background="gray" padding="lg">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center animate-fade-up">
             Professional Development
