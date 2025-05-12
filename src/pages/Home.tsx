@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import Button from "@/components/Button";
@@ -48,6 +47,7 @@ const Home = () => {
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
+          {/* Video Background */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-navy/70 z-10"></div>
           <video
             autoPlay
@@ -70,7 +70,7 @@ const Home = () => {
             As a Cloud Associate at CAPACITI, I transform complex infrastructure into agile, scalable solutions.
           </h2>
           <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <Button variant="outline" size="lg" href="/certifications">
+            <Button variant="outline" size="lg" href="/about">
               Explore My Work <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
