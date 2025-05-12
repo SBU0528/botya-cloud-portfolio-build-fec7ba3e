@@ -63,15 +63,12 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="container mx-auto px-4 text-center relative z-20">
-          <h1 className="text-5xl md:text-7xl font-bold font-montserrat text-white mb-6 animate-fade-up">
-            Sibusiso Botya
+          <h1 className="text-5xl md:text-7xl font-bold font-montserrat text-white mb-6 animate-fade-up drop-shadow-lg">
+            Empowering Innovation in the Cloud
           </h1>
           <h2 className="text-xl md:text-3xl font-montserrat text-white mb-12 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Cloud Associate at CAPACITI | Driving Innovations in Cloud Computing
+            As a Cloud Associate at CAPACITI, I transform complex infrastructure into agile, scalable solutions. Welcome to my portfolio.
           </h2>
-          <p className="text-lg md:text-xl text-white mb-12 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            Let's connect and explore how my expertise can benefit your projects.
-          </p>
           <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <Button variant="outline" size="lg" href="/certifications">
               Explore My Work <ChevronRight className="ml-2 h-5 w-5" />
@@ -133,3 +130,4 @@ const Home = () => {
 };
 
 export default Home;
+
