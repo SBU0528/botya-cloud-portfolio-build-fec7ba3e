@@ -118,7 +118,7 @@ const Home = () => {
       <Section background="gray" padding="lg" className="text-center">
         <div className="max-w-3xl mx-auto initially-hidden opacity-0">
           <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-navy mb-6">
-            Ready to discuss your cloud needs?
+            Let's connect!
           </h3>
           <p className="text-lg text-gray-600 mb-8">
             I'm excited to explore how my cloud expertise can help drive your projects forward.

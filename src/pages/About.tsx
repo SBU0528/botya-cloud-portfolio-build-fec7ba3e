@@ -16,7 +16,7 @@ const About = () => {
             <div className="flex justify-center md:justify-end animate-fade-up">
               <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
                 <img 
-                  src="/3b2f1b16-b0e8-4c06-9549-79713b7fa1e0.jfif" 
+                  src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png" 
                   alt="Sibusiso Botya Portrait" 
                   className="w-full h-full object-cover"
                 />

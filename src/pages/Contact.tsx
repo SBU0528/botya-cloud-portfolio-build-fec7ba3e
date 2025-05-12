@@ -6,6 +6,8 @@ import Section from "@/components/Section";
 import Button from "@/components/Button";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -57,7 +59,7 @@ const Contact = () => {
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Your Name
                     </label>
-                    <input
+                    <Input
                       type="text"
                       id="name"
                       name="name"
@@ -72,7 +74,7 @@ const Contact = () => {
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                       Email Address
                     </label>
-                    <input
+                    <Input
                       type="email"
                       id="email"
                       name="email"
@@ -87,7 +89,7 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                       Message
                     </label>
-                    <textarea
+                    <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
