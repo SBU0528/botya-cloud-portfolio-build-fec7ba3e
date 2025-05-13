@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { ChartContainer, ChartTooltipContent, ChartLegend } from "@/components/ui/chart";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { InfoCircle } from "lucide-react";
+import { Info } from "lucide-react";
 
 interface Skill {
   name: string;
@@ -91,7 +91,7 @@ const SkillsRadarChart = () => {
       <div className="flex items-center justify-center mb-4">
         <h3 className="text-2xl font-bold font-montserrat text-navy">Cloud Technology Proficiency</h3>
         <div className="ml-2 group relative cursor-help">
-          <InfoCircle size={16} className="text-skyblue" />
+          <Info size={16} className="text-skyblue" />
           <div className="absolute bottom-full mb-2 hidden group-hover:block bg-white p-2 rounded shadow-lg text-xs w-64">
             Hover over the chart points to see detailed information about each skill
           </div>
@@ -122,7 +122,7 @@ const SkillsRadarChart = () => {
                 fillOpacity={0.3} 
                 stroke="#8B5CF6" 
                 strokeWidth={2}
-                onMouseOver={(data) => setActiveSkill(data.name)}
+                onMouseOver={(data) => setActiveSkill(data.name as string)}
                 onMouseOut={() => setActiveSkill(null)}
               />
             </RadarChart>
