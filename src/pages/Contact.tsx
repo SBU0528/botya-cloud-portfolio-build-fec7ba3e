@@ -5,7 +5,7 @@ import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 
@@ -17,27 +17,47 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    try {
+      const response = await fetch("https://formspree.io/f/xdoqayyj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setFormData({ name: "", email: "", message: "" });
+        setIsSubmitted(true);
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out! I'll get back to you soon.",
+          duration: 5000,
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
       toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
         duration: 5000,
       });
-      setFormData({ name: "", email: "", message: "" });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -54,62 +74,75 @@ const Contact = () => {
             <div className="animate-fade-up">
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-bold font-montserrat text-navy mb-6">Send a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Name
-                    </label>
-                    <Input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
-                    </label>
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
-                      placeholder="How can I help you?"
-                    />
-                  </div>
-                  <div>
+                {isSubmitted ? (
+                  <div className="p-6 bg-green-50 rounded-lg text-center">
+                    <h4 className="text-xl font-medium text-green-700 mb-2">Thank you for reaching out!</h4>
+                    <p className="text-green-600">I'll get back to you soon.</p>
                     <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full"
+                      className="mt-6"
+                      onClick={() => setIsSubmitted(false)}
                     >
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      Send Another Message
                     </Button>
                   </div>
-                </form>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        Your Name
+                      </label>
+                      <Input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email Address
+                      </label>
+                      <Input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={6}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
+                        placeholder="How can I help you?"
+                      />
+                    </div>
+                    <div>
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full"
+                      >
+                        {isSubmitting ? "Sending..." : "Send Message"}
+                      </Button>
+                    </div>
+                  </form>
+                )}
               </div>
             </div>
             
@@ -157,12 +190,12 @@ const Contact = () => {
                     <div>
                       <h4 className="font-medium text-lg mb-1">GitHub</h4>
                       <a
-                        href="https://github.com/sibusisobotya"
+                        href="https://github.com/SBU0528"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-skyblue transition-colors"
                       >
-                        github.com/sibusisobotya
+                        github.com/SBU0528
                       </a>
                     </div>
                   </div>

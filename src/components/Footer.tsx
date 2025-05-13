@@ -23,14 +23,14 @@ const Footer = () => {
               <h4 className="font-montserrat font-medium mb-2 text-center md:text-left">Connect</h4>
               <div className="flex justify-center space-x-4">
                 <a 
-                  href="mailto:sibusiso.botya@example.com" 
+                  href="mailto:botyasibusiso@gmail.com" 
                   aria-label="Email"
                   className="hover:text-skyblue transition-colors duration-200"
                 >
                   <Mail size={20} />
                 </a>
                 <a 
-                  href="https://linkedin.com/in/sibusiso-botya" 
+                  href="https://linkedin.com/in/sibusiso-botya-7a807224a" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -39,7 +39,7 @@ const Footer = () => {
                   <Linkedin size={20} />
                 </a>
                 <a 
-                  href="https://github.com/sibusisobotya" 
+                  href="https://github.com/SBU0528" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="GitHub"
