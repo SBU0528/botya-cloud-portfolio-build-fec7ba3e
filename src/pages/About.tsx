@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
@@ -10,7 +9,7 @@ const About = () => {
       <div className="pt-24 md:pt-28">
         <Section padding="lg">
           <PageHeader title="About Me" />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Profile Image */}
             <div className="flex justify-center md:justify-end animate-fade-up">
@@ -22,30 +21,30 @@ const About = () => {
                 />
               </div>
             </div>
-            
+
             {/* About Text */}
-    - <section className="prose mx-auto py-12>"
-    + <section className="prose mx-auto py-12 text-gray-900 dark:text-gray-100"></section>
+            <section className="prose mx-auto py-12 text-gray-900 dark:text-gray-100">
+              <p className="text-lg leading-relaxed mb-4">
                 Highly motivated and detail-oriented IT professional with a background in the security industry. 
-                In 2018, I developed a passion for IT and pursued further education. 
+                In 2018, I developed a passion for IT and pursued further education.
               </p>
-              <p className="text-lg leading-relaxed text-gray-700 mb-6">
+              <p className="text-lg leading-relaxed mb-4">
                 In 2023, I enrolled in Optimi College's online program and successfully completed the A+, N+, and CCNA bundle course, 
                 earning my certification in 2024.
               </p>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="text-lg leading-relaxed">
                 Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in the dynamic field of cloud computing.
               </p>
-            </div>
+            </section>
           </div>
+        </Section>
 
-    
         {/* Skills Section */}
         <Section background="gray" padding="lg">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center animate-fade-up">
             My Skills
           </h2>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
@@ -91,3 +90,4 @@ const About = () => {
 };
 
 export default About;
+
