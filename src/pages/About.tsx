@@ -38,9 +38,8 @@ const About = () => {
               </p>
             </div>
           </div>
-        </Section>
-      
-        
+
+    
         {/* Skills Section */}
         <Section background="gray" padding="lg">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center animate-fade-up">
