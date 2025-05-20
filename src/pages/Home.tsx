@@ -6,10 +6,10 @@ import Layout from '@/components/Layout';
 const Home: React.FC = () => (
   <Layout>
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Digital Cloud-Computing Animation Background */}
+      {/* Updated Digital Cloud Animation Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://cdn.coverr.co/videos/coverr-cloud-networks-1579/1080p.mp4"
+        src="https://cdn.coverr.co/videos/coverr-data-network-2761/1080p.mp4"
         autoPlay
         muted
         loop
@@ -35,8 +35,3 @@ const Home: React.FC = () => (
 );
 
 export default Home;
-
-
-
-
-
