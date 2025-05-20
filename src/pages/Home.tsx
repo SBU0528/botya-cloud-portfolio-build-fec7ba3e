@@ -5,11 +5,11 @@ import Layout from '@/components/Layout';
 
 const Home: React.FC = () => (
   <Layout>
-    <div className="relative w-full h-screen">
-      {/* Cloud Timelapse Video Background */}
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Digital Cloud-Computing Animation Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://cdn.pixabay.com/video/2017/05/23/9153-217588676_1920x1080.mp4"
+        src="https://cdn.coverr.co/videos/coverr-cloud-networks-1579/1080p.mp4"
         autoPlay
         muted
         loop
@@ -18,10 +18,10 @@ const Home: React.FC = () => (
 
       {/* Foreground Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-white text-5xl md:text-7xl font-bold drop-shadow-lg">
+        <h1 className="text-white text-5xl md:text-7xl font-bold drop-shadow-2xl">
           Sibusiso Botya
         </h1>
-        <p className="mt-4 text-white text-lg md:text-2xl drop-shadow-md">
+        <p className="mt-4 text-white text-lg md:text-2xl drop-shadow-xl">
           Transforming cloud infrastructure into agile, scalable solutions.
         </p>
         <div className="mt-8">
