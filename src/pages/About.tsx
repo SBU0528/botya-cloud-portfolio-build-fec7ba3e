@@ -25,7 +25,7 @@ const About = () => {
             
             {/* About Text */}
     - <section className="prose mx-auto py-12>"
-   + <Section className="prose mx-auto py-12 text-gray-900 dark:text-gray-100"> 
+    + <section className="prose mx-auto py-12 text-gray-900 dark:text-gray-100"></section>
                 Highly motivated and detail-oriented IT professional with a background in the security industry. 
                 In 2018, I developed a passion for IT and pursued further education. 
               </p>
@@ -39,6 +39,7 @@ const About = () => {
             </div>
           </div>
         </Section>
+      
         
         {/* Skills Section */}
         <Section background="gray" padding="lg">
