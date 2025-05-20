@@ -139,7 +139,7 @@ const Certifications: React.FC = () => {
                 style={{ animationDelay: `${0.1 * idx}s` }}
               >
                 <div className="flex items-start mb-4">
-                  <Computer className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
+                  <FileCheck className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
                   <h3 className="text-lg font-bold font-montserrat text-navy dark:text-gray-100">
                     {cert.title}
                   </h3>
