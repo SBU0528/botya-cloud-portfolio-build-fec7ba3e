@@ -6,18 +6,18 @@ import Layout from '@/components/Layout';
 const Home: React.FC = () => (
   <Layout>
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Cloud Computing Background Video */}
+      {/* IT Cloud Computing Animation Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://cdn.coverr.co/videos/coverr-cloud-technology-2744/1080p.mp4"
+        src="https://videos.pexels.com/video-files/9694447/9694447-sd_640_360_25fps.mp4"
         autoPlay
         muted
         loop
         playsInline
       />
 
-      {/* Blue Dark Gradient Overlay for Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/40 to-blue-900/70" />
+      {/* Subtle Blue Gradient Overlay for Contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 via-blue-800/30 to-transparent" />
 
       {/* Foreground Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-0">
