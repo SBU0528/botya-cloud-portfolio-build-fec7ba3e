@@ -7,19 +7,24 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <div className="relative w-full h-screen overflow-hidden">
-        {/* Full-Screen Cloud Video Background */}
+        {/* Full-Screen Dynamic Cloud Video Background */}
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src="https://cdn.pixabay.com/video/2017/05/23/9153-217588676_1920x1080.mp4"
+          className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
           playsInline
-        />
+        >
+          <source
+            src="https://cdn.pixabay.com/video/2022/02/15/22/07/clouds-7017095_1280.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
 
         {/* Foreground Content */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="text-white text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-white text-5xl md:text-7xl font-bold mb-4 drop-shadow-xl">
             Sibusiso Botya
           </h1>
           <p className="text-white text-lg md:text-2xl mb-8 drop-shadow-md">
@@ -35,6 +40,7 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
 
 
 
