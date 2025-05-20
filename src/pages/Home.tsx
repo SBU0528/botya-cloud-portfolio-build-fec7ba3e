@@ -6,7 +6,7 @@ import Layout from '@/components/Layout';
 const Home: React.FC = () => (
   <Layout>
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Digital Cloud-Computing Animation Background */}
+      {/* Cloud Computing Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src="https://cdn.coverr.co/videos/coverr-cloud-technology-2744/1080p.mp4"
@@ -16,7 +16,7 @@ const Home: React.FC = () => (
         playsInline
       />
 
-      {/* Blue Dark Gradient Overlay for Mood */}
+      {/* Blue Dark Gradient Overlay for Contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/40 to-blue-900/70" />
 
       {/* Foreground Content */}
