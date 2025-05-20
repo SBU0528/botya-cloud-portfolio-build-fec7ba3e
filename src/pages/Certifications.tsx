@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import { FileCheck, ExternalLink, Search } from "lucide-react";
+import { FileCheck, ExternalLink, Search, Computer } from "lucide-react";
 
 interface Certification {
   title: string;
@@ -139,7 +139,7 @@ const Certifications: React.FC = () => {
                 style={{ animationDelay: `${0.1 * idx}s` }}
               >
                 <div className="flex items-start mb-4">
-                  <FileCheck className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
+                  <Computer className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
                   <h3 className="text-lg font-bold font-montserrat text-navy dark:text-gray-100">
                     {cert.title}
                   </h3>
