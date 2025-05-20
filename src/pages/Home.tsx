@@ -13,7 +13,7 @@ const Home: React.FC = () => (
         autoPlay
         muted
         loop
-        playsInline
+        play
       />
 
       {/* Foreground Content */}
