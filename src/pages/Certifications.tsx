@@ -214,7 +214,7 @@ const Certifications: React.FC = () => {
                       </button>
                       {openCertId === cert.id && (
                         <img
-                          src="/optimi cert/optimi-cert.jpg"
+                          src="public/lovable-uploads/optimi-cert/Certificate.jpg"
                           alt="Optimi Certificate"
                           className="mt-4 w-full rounded shadow-lg"
                         />
