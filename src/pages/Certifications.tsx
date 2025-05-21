@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import type { LucideIcon } from "lucide-react";
+import Layout from "@/components/Layout";
+import PageHeader from "@/components/PageHeader";
+import Section from "@/components/Section";
 import {
   ExternalLink,
   Search,
@@ -12,11 +14,7 @@ import {
   Server,
   MessageCircle,
   Mail,
-  ChevronDown,
 } from "lucide-react";
-import Layout from "@/components/Layout";
-import PageHeader from "@/components/PageHeader";
-import Section from "@/components/Section";
 
 interface Certification {
   title: string;
@@ -25,17 +23,22 @@ interface Certification {
   id: string;
   skills: string[];
   link: string;
-  icon: LucideIcon;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 const Certifications: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const certifications: Certification[] = [
-    /* your certifications array here, e.g.: */
-    { title: "Generative AI: Introduction and Applications", issuer: "IBM", date: "May 2025", id: "5C55GRQPEBVI", skills: ["Generative AI","Artificial Intelligence"], link: "https://coursera.org/verify/5C55GRQPEBVI", icon: Cpu },
-    /* …etc… */
+    { title: "Generative AI: Introduction and Applications", issuer: "IBM", date: "May 2025", id: "5C55GRQPEBVI", skills: ["Generative AI", "Artificial Intelligence"], link: "https://coursera.org/verify/5C55GRQPEBVI", icon: Cpu },
+    { title: "Generative AI: Prompt Engineering Basics", issuer: "IBM", date: "May 2025", id: "N8SY1TUKJWCU", skills: ["Prompt Engineering", "Generative AI"], link: "https://coursera.org/verify/N8SY1TUKJWCU", icon: Code },
+    { title: "Active Listening: Enhancing Communication Skills", issuer: "Coursera Instructor Network", date: "Mar 2025", id: "HCFGE4BL7FQI", skills: ["Cross-Cultural Communication Skills"], link: "https://coursera.org/verify/HCFGE4BL7FQI", icon: Headphones },
+    { title: "Cloud Computing Foundations", issuer: "Duke University", date: "Mar 2025", id: "QH200NTBBIPJ", skills: ["Cloud Infrastructure"], link: "https://coursera.org/verify/QH200NTBBIPJ", icon: Cloud },
+    { title: "Introduction to Cloud Computing", issuer: "United Latino Students Association", date: "Mar 2025", id: "4FLIYFX5KSN5", skills: ["Cloud Computing", "Cloud Infrastructure"], link: "https://coursera.org/verify/4FLIYFX5KSN5", icon: Cloud },
+    { title: "Introduction to Hardware and Operating Systems", issuer: "IBM", date: "Mar 2025", id: "0AY0X7JIOQ83", skills: ["Computer Hardware Troubleshooting","Hardware Installation","Networking","Operating Systems"], link: "https://coursera.org/verify/0AY0X7JIOQ83", icon: HardDrive },
+    { title: "Introduction to Networking and Cloud Computing", issuer: "Microsoft", date: "Mar 2025", id: "NFHAM0TBZEFR", skills: ["Cloud Computing","Networking and Cloud Computing"], link: "https://coursera.org/verify/NFHAM0TBZEFR", icon: Server },
+    { title: "Verbal Communications and Presentation Skills", issuer: "Starweaver", date: "Mar 2025", id: "NNTM0DJMU6Y9", skills: ["Oral Communication","Speech","Verbal Behavior","Communication Training"], link: "https://coursera.org/verify/NNTM0DJMU6Y9", icon: MessageCircle },
+    { title: "Write Professional Emails in English", issuer: "Georgia Institute of Technology", date: "Mar 2025", id: "CDI63MS6WCY6", skills: ["Email Communications","Professional Writing"], link: "https://coursera.org/verify/CDI63MS6WCY6", icon: Mail },
   ];
 
   const filteredCertifications = certifications.filter(cert =>
@@ -78,7 +81,7 @@ const Certifications: React.FC = () => {
                   style={{ animationDelay: `${0.1 * idx}s` }}
                 >
                   <div className="flex items-center mb-4">
-                    <IconComponent className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
+                    <IconComponent className="text-skyblue ..." size={24} />
                     <h3 className="text-lg font-bold font-montserrat text-navy dark:text-gray-100">
                       {cert.title}
                     </h3>
