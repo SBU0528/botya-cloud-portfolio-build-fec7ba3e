@@ -9,7 +9,7 @@ const Home: React.FC = () => (
       {/* IT Cloud Computing Animation Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://v.ftcdn.net/02/43/91/36/700_F_243913675_FD6RsnTa1S4ZguVfSvXCB7SxI7konUrt_ST.mp4"
+        src="https://cdn.pixabay.com/video/2019/10/10/27725-365890983_large.mp4"
         autoPlay
         muted
         loop
