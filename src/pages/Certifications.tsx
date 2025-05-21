@@ -30,6 +30,17 @@ const Certifications: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const certifications: Certification[] = [
+    // ...existing certifications
+    {
+      title: "CompTIA A+, Network+ & CCNA Routing and Switching",
+      issuer: "Optimi College",
+      date: "August 2024",
+      id: "OC2591",
+      skills: ["CompTIA A+", "CompTIA Network+", "CCNA Routing and Switching"],
+      link: "#",
+      icon: Server
+    },
+
     { title: "Generative AI: Introduction and Applications", issuer: "IBM", date: "May 2025", id: "5C55GRQPEBVI", skills: ["Generative AI", "Artificial Intelligence"], link: "https://coursera.org/verify/5C55GRQPEBVI", icon: Cpu },
     { title: "Generative AI: Prompt Engineering Basics", issuer: "IBM", date: "May 2025", id: "N8SY1TUKJWCU", skills: ["Prompt Engineering", "Generative AI"], link: "https://coursera.org/verify/N8SY1TUKJWCU", icon: Code },
     { title: "Active Listening: Enhancing Communication Skills", issuer: "Coursera Instructor Network", date: "Mar 2025", id: "HCFGE4BL7FQI", skills: ["Cross-Cultural Communication Skills"], link: "https://coursera.org/verify/HCFGE4BL7FQI", icon: Headphones },
@@ -81,7 +92,7 @@ const Certifications: React.FC = () => {
                   style={{ animationDelay: `${0.1 * idx}s` }}
                 >
                   <div className="flex items-center mb-4">
-                    <IconComponent className="text-skyblue ..." size={24} />
+                    <IconComponent className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
                     <h3 className="text-lg font-bold font-montserrat text-navy dark:text-gray-100">
                       {cert.title}
                     </h3>
