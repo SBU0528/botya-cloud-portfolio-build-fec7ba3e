@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
@@ -8,6 +7,7 @@ import { Mail, Phone, Linkedin, Github } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -27,27 +27,28 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      const response = await fetch("https://formspree.io/f/xdoqayyj", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
 
-      if (response.ok) {
-        setFormData({ name: "", email: "", message: "" });
-        setIsSubmitted(true);
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for reaching out! I'll get back to you soon.",
-          duration: 5000,
-        });
-      } else {
-        throw new Error("Form submission failed");
-      }
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      };
+
+      await emailjs.send(
+        "service_3ythmc9",
+        "template_5rhr19j",
+        templateParams,
+        "KWHcPs3L9phxJ5IvW"
+      );
+
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitted(true);
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out! I'll get back to you soon.",
+        duration: 5000,
+      });
     } catch (error) {
       toast({
         title: "Something went wrong",
@@ -68,7 +69,7 @@ const Contact = () => {
             title="Get in Touch"
             subtitle="Have a question or want to work together? Reach out using the form below or through my contact details."
           />
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <div className="animate-fade-up">
@@ -145,7 +146,7 @@ const Contact = () => {
                 )}
               </div>
             </div>
-            
+
             {/* Contact Information */}
             <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
               <div className="bg-navy text-white p-8 rounded-lg shadow-md h-full">
@@ -165,7 +166,7 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-skyblue p-3 rounded-full mr-4">
                       <Linkedin className="h-6 w-6 text-white" />
@@ -182,7 +183,7 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-skyblue p-3 rounded-full mr-4">
                       <Github className="h-6 w-6 text-white" />
@@ -199,7 +200,7 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-skyblue p-3 rounded-full mr-4">
                       <Phone className="h-6 w-6 text-white" />
