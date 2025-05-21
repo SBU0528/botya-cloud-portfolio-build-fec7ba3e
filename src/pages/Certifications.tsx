@@ -38,10 +38,10 @@ const Certifications: React.FC = () => {
     /* …etc… */
   ];
 
-  const filtered = certifications.filter(cert =>
+  const filteredCertifications = certifications.filter(cert =>
     cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cert.skills.some(s => s.toLowerCase().includes(searchTerm.toLowerCase()))
+    cert.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
@@ -50,94 +50,76 @@ const Certifications: React.FC = () => {
         <Section padding="lg">
           <PageHeader
             title="Certifications"
-            subtitle="Click to expand and explore each credential"
+            subtitle="Professional certifications and qualifications that demonstrate my expertise and knowledge in various domains"
           />
 
-          {/* Search */}
-          <div className="mb-8 max-w-md mx-auto">
+          {/* Search Bar */}
+          <div className="mb-12 max-w-md mx-auto">
             <div className="relative">
-              <Search
-                size={20}
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500"
-              />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" size={20} />
               <input
                 type="text"
-                placeholder="Filter by title, issuer or skill…"
+                placeholder="Search certifications by title, issuer, or skill..."
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-skyblue dark:bg-gray-800 dark:border-gray-600"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500"
               />
             </div>
           </div>
 
-          {/* Accordion List */}
-          <div className="space-y-4">
-            {filtered.map((cert, idx) => {
-              const Icon = cert.icon;
-              const isOpen = openIndex === idx;
+          {/* Certifications Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredCertifications.map((cert, idx) => {
+              const IconComponent = cert.icon;
               return (
-                <details
+                <div
                   key={idx}
-                  open={isOpen}
-                  onToggle={() => setOpenIndex(isOpen ? null : idx)}
-                  className="group bg-white dark:bg-gray-900 rounded-lg shadow transition"
+                  className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:-translate-y-1 p-6 animate-fade-up"
+                  style={{ animationDelay: `${0.1 * idx}s` }}
                 >
-                  <summary className="flex items-center justify-between p-6 cursor-pointer">
-                    <div className="flex items-center">
-                      <Icon
-                        size={24}
-                        className="text-skyblue dark:text-skyblue mr-4 flex-shrink-0"
-                      />
-                      <div>
-                        <h3 className="text-lg font-semibold text-navy dark:text-gray-100">
-                          {cert.title}
-                        </h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {cert.issuer} • {cert.date}
-                        </p>
-                      </div>
-                    </div>
-                    <ChevronDown
-                      size={20}
-                      className={`transform transition-transform ${
-                        isOpen ? "rotate-180" : "rotate-0"
-                      } text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200`}
-                    />
-                  </summary>
-                  <div className="px-6 pb-6 space-y-4 border-t border-gray-100 dark:border-gray-700">
-                    <div>
-                      <h4 className="font-medium text-gray-800 dark:text-gray-100 mb-2">
-                        Skills Demonstrated
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {cert.skills.map((s, i) => (
-                          <span
-                            key={i}
-                            className="bg-softgray dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-xs"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-skyblue hover:text-navy transition"
-                    >
-                      View Credential <ExternalLink className="ml-1" size={16} />
-                    </a>
+                  <div className="flex items-center mb-4">
+                    <IconComponent className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
+                    <h3 className="text-lg font-bold font-montserrat text-navy dark:text-gray-100">
+                      {cert.title}
+                    </h3>
                   </div>
-                </details>
+                  <div className="mb-4 text-gray-700 dark:text-gray-300">
+                    <p><span className="font-medium">Issuer:</span> {cert.issuer}</p>
+                    <p><span className="font-medium">Date:</span> {cert.date}</p>
+                    <p><span className="font-medium">Credential ID:</span> {cert.id}</p>
+                  </div>
+                  <div className="mb-4">
+                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">Skills:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {cert.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="bg-softgray dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-skyblue hover:text-navy transition-colors dark:text-skyblue dark:hover:text-navy"
+                  >
+                    Show Credential <ExternalLink className="ml-1" size={16} />
+                  </a>
+                </div>
               );
             })}
-            {filtered.length === 0 && (
-              <p className="text-center text-gray-500 dark:text-gray-400 py-12">
-                No certifications match your search.
-              </p>
-            )}
           </div>
+
+          {/* No Results */}
+          {filteredCertifications.length === 0 && (
+            <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+              No certifications found matching your search.
+            </div>
+          )}
         </Section>
       </div>
     </Layout>
