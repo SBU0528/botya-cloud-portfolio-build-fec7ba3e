@@ -214,7 +214,7 @@ const Certifications: React.FC = () => {
                       </button>
                       {openCertId === cert.id && (
                        <img 
-                          src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png" 
+                          src="/lovable-uploads/Certificate.jpg" 
                           alt="Sibusiso Botya Portrait" 
                           className="w-full h-full object-cover"
                       />
