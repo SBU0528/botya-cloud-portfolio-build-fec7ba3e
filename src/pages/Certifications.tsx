@@ -213,11 +213,11 @@ const Certifications: React.FC = () => {
                         <ExternalLink className="ml-1" size={16} />
                       </button>
                       {openCertId === cert.id && (
-                        <img
-                          src="Certificate.jpg"
-                          alt="Optimi Certificate"
-                          className="mt-4 w-full rounded shadow-lg"
-                        />
+                       <img 
+                          src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png" 
+                          alt="Sibusiso Botya Portrait" 
+                          className="w-full h-full object-cover"
+                      />
                       )}
                     </>
                   ) : (
