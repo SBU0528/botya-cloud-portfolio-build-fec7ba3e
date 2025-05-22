@@ -117,12 +117,7 @@ const Certifications: React.FC = () => {
       issuer: "Starweaver",
       date: "Mar 2025",
       id: "NNTM0DJMU6Y9",
-      skills: [
-        "Oral Communication",
-        "Speech",
-        "Verbal Behavior",
-        "Communication Training",
-      ],
+      skills: ["Oral Communication", "Speech", "Verbal Behavior", "Communication Training"],
       link: "https://coursera.org/verify/NNTM0DJMU6Y9",
       icon: MessageCircle,
     },
@@ -137,13 +132,10 @@ const Certifications: React.FC = () => {
     },
   ];
 
-  const filteredCertifications = certifications.filter(
-    (cert) =>
-      cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cert.skills.some((skill) =>
-        skill.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+  const filteredCertifications = certifications.filter((cert) =>
+    cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    cert.skills.some((skill) => skill.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
@@ -158,7 +150,10 @@ const Certifications: React.FC = () => {
           {/* Search Bar */}
           <div className="mb-12 max-w-md mx-auto">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500" size={20} />
+              <Search
+                size={20}
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500"
+              />
               <input
                 type="text"
                 placeholder="Search certifications by title, issuer, or skill..."
@@ -171,27 +166,37 @@ const Certifications: React.FC = () => {
 
           {/* Certifications Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCertifications.map((cert, idx) => {
+            {filteredCertifications.map((cert) => {
               const IconComponent = cert.icon;
               return (
                 <div
-                  key={idx}
+                  key={cert.id}
                   className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:-translate-y-1 p-6 animate-fade-up"
-                  style={{ animationDelay: `${0.1 * idx}s` }}
                 >
                   <div className="flex items-center mb-4">
-                    <IconComponent className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0" size={24} />
+                    <IconComponent
+                      size={24}
+                      className="text-skyblue dark:text-skyblue mr-3 flex-shrink-0"
+                    />
                     <h3 className="text-lg font-bold font-montserrat text-navy dark:text-gray-100">
                       {cert.title}
                     </h3>
                   </div>
                   <div className="mb-4 text-gray-700 dark:text-gray-300">
-                    <p><span className="font-medium">Issuer:</span> {cert.issuer}</p>
-                    <p><span className="font-medium">Date:</span> {cert.date}</p>
-                    <p><span className="font-medium">Credential ID:</span> {cert.id}</p>
+                    <p>
+                      <span className="font-medium">Issuer:</span> {cert.issuer}
+                    </p>
+                    <p>
+                      <span className="font-medium">Date:</span> {cert.date}
+                    </p>
+                    <p>
+                      <span className="font-medium">Credential ID:</span> {cert.id}
+                    </p>
                   </div>
                   <div className="mb-4">
-                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">Skills:</h4>
+                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">
+                      Skills:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, i) => (
                         <span
@@ -203,21 +208,21 @@ const Certifications: React.FC = () => {
                       ))}
                     </div>
                   </div>
+                  {/* Conditional show for Optimi certificate */}
                   {cert.id === "OC2591" ? (
                     <>
                       <button
                         onClick={() => toggleCertImage(cert.id)}
                         className="inline-flex items-center text-skyblue hover:text-navy transition-colors dark:text-skyblue dark:hover:text-navy"
                       >
-                        {openCertId === cert.id ? "Hide Certificate" : "Show Credential"}{" "}
-                        <ExternalLink className="ml-1" size={16} />
+                        Show Certificate <ExternalLink className="ml-1" size={16} />
                       </button>
                       {openCertId === cert.id && (
-                       <img 
-                          src="/lovable-uploads/Certificate.jpg" 
-                          alt="Sibusiso Botya Portrait" 
-                          className="w-full h-full object-cover"
-                      />
+                        <img
+                          src="/components/certificates/optimi-cert.jpg"
+                          alt="Optimi College Certificate"
+                          className="mt-4 w-full rounded shadow"
+                        />
                       )}
                     </>
                   ) : (
