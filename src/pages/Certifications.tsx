@@ -14,7 +14,7 @@ import {
   Server,
   MessageCircle,
   Mail,
-  Windows,        // added Microsoft logo icon
+  BrandWindows,    // corrected icon import
 } from "lucide-react";
 
 interface Certification {
@@ -136,7 +136,6 @@ const Certifications: React.FC = () => {
       link: "https://coursera.org/verify/CDI63MS6WCY6",
       icon: Mail,
     },
-    // ───────── New Microsoft Azure Certificate ─────────
     {
       title: "Introduction to Microsoft Azure Cloud Services",
       issuer: "Microsoft",
@@ -144,7 +143,7 @@ const Certifications: React.FC = () => {
       id: "KELY2TCWXD1Y",
       skills: ["Microsoft Azure", "Cloud Services"],
       link: "https://coursera.org/verify/KELY2TCWXD1Y",
-      icon: Windows,
+      icon: BrandWindows,
     },
   ];
 
@@ -178,7 +177,7 @@ const Certifications: React.FC = () => {
                 placeholder="Search certifications by title, issuer, or skill..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-500"
               />
             </div>
           </div>
@@ -203,20 +202,12 @@ const Certifications: React.FC = () => {
                     </h3>
                   </div>
                   <div className="mb-4 text-gray-700 dark:text-gray-300">
-                    <p>
-                      <span className="font-medium">Issuer:</span> {cert.issuer}
-                    </p>
-                    <p>
-                      <span className="font-medium">Date:</span> {cert.date}
-                    </p>
-                    <p>
-                      <span className="font-medium">Credential ID:</span> {cert.id}
-                    </p>
+                    <p><span className="font-medium">Issuer:</span> {cert.issuer}</p>
+                    <p><span className="font-medium">Date:</span> {cert.date}</p>
+                    <p><span className="font-medium">Credential ID:</span> {cert.id}</p>
                   </div>
                   <div className="mb-4">
-                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">
-                      Skills:
-                    </h4>
+                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">Skills:</h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, i) => (
                         <span
