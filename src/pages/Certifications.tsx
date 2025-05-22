@@ -14,7 +14,7 @@ import {
   Server,
   MessageCircle,
   Mail,
-  BrandWindows,
+  Award, // new icon for Microsoft cert
 } from "lucide-react";
 
 interface Certification {
@@ -144,7 +144,7 @@ const Certifications: React.FC = () => {
       id: "KELY2TCWXD1Y",
       skills: ["Microsoft Azure", "Cloud Services"],
       link: "https://coursera.org/verify/KELY2TCWXD1Y",
-      icon: BrandWindows,
+      icon: Award, // using Award icon for this entry
     },
   ];
 
@@ -165,12 +165,12 @@ const Certifications: React.FC = () => {
             subtitle="Professional certifications and qualifications"
           />
 
-          {/* Search Bar */}
+          {/* Search */}
           <div className="mb-12 max-w-md mx-auto">
             <div className="relative">
               <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500"
                 size={20}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
               />
               <input
                 type="text"
@@ -210,7 +210,9 @@ const Certifications: React.FC = () => {
                       onClick={() => toggleCertImage(cert.id)}
                       className="inline-flex items-center text-sky-400 hover:text-navy"
                     >
-                      {openCertId === cert.id ? "Hide Certificate" : "Show Credential"}{" "}
+                      {openCertId === cert.id
+                        ? "Hide Certificate"
+                        : "Show Credential"}{" "}
                       <ExternalLink className="ml-1" size={16} />
                     </button>
                     {openCertId === cert.id && (
