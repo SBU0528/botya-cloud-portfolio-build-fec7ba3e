@@ -11,11 +11,7 @@ import { Input } from "@/components/ui/input";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -36,26 +32,24 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _replyto: formData.email,               // enables reply-to in Formspree
-          _subject: "New message from portfolio", // email subject
+          _replyto: formData.email,
+          _subject: "New message from portfolio",
         }),
       });
+      if (!res.ok) throw new Error("Network response was not ok");
 
-      if (res.ok) {
-        setFormData({ name: "", email: "", message: "" });
-        setIsSubmitted(true);
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for reaching out! I'll get back to you soon.",
-          duration: 5000,
-        });
-      } else {
-        throw new Error("Formspree error");
-      }
-    } catch {
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitted(true);
       toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
+        title: "Message Sent!",
+        description: "Thank you for reaching out! A confirmation email has been sent.",
+        duration: 5000,
+      });
+    } catch (error) {
+      console.error("Formspree error:", error);
+      toast({
+        title: "Error Sending Message",
+        description: "Please try again later or contact me directly at botyasibusiso@gmail.com.",
         variant: "destructive",
         duration: 5000,
       });
@@ -70,87 +64,86 @@ const Contact = () => {
         <Section padding="lg">
           <PageHeader
             title="Get in Touch"
-            subtitle="Have a question or want to work together? Reach out using the form below or through my contact details."
+            subtitle="Have a question or want to work together? Fill out the form or use the contact info."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
+            {/* Form */}
             <div className="animate-fade-up">
               <div className="bg-white p-8 rounded-lg shadow-md">
-                <h3 className="text-2xl font-bold font-montserrat text-navy mb-6">
-                  Send a Message
-                </h3>
+                <h3 className="text-2xl font-bold text-navy mb-6">Send a Message</h3>
+
                 {isSubmitted ? (
                   <div className="p-6 bg-green-50 rounded-lg text-center">
                     <h4 className="text-xl font-medium text-green-700 mb-2">
-                      Thank you for reaching out!
+                      Thanks! Check your inbox.
                     </h4>
-                    <p className="text-green-600">I'll get back to you soon.</p>
-                    <Button className="mt-6" onClick={() => setIsSubmitted(false)}>
-                      Send Another Message
+                    <p className="text-green-600">
+                      A confirmation was sent to <strong>botyasibusiso@gmail.com</strong>.
+                    </p>
+                    <Button onClick={() => setIsSubmitted(false)} className="mt-6">
+                      Send Another
                     </Button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="name" className="block text-sm font-medium mb-1">
                         Your Name
                       </label>
                       <Input
-                        type="text"
                         id="name"
                         name="name"
+                        type="text"
+                        required
                         value={formData.name}
                         onChange={handleChange}
-                        required
                         placeholder="John Doe"
-                        className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-skyblue"
+                        className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address
+                      <label htmlFor="email" className="block text-sm font-medium mb-1">
+                        Email
                       </label>
                       <Input
-                        type="email"
                         id="email"
                         name="email"
+                        type="email"
+                        required
                         value={formData.email}
                         onChange={handleChange}
-                        required
-                        placeholder="john@example.com"
-                        className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-skyblue"
+                        placeholder="you@example.com"
+                        className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="message" className="block text-sm font-medium mb-1">
                         Message
                       </label>
                       <Textarea
                         id="message"
                         name="message"
-                        value={formData.message}
-                        onChange={handleChange}
                         required
                         rows={6}
-                        placeholder="How can I help you?"
-                        className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-skyblue"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="How can I help?"
+                        className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
-                    <div>
-                      <Button type="submit" disabled={isSubmitting} className="w-full">
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                      </Button>
-                    </div>
+                    <Button type="submit" disabled={isSubmitting} className="w-full">
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
                   </form>
                 )}
               </div>
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Info */}
             <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <div className="bg-navy text-white p-8 rounded-lg shadow-md h-full">
-                <h3 className="text-2xl font-bold font-montserrat mb-8">Contact Information</h3>
+                <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
                 <div className="space-y-6">
                   <ContactInfo icon={<Mail />} label="Email" href="mailto:botyasibusiso@gmail.com">
                     botyasibusiso@gmail.com
@@ -175,7 +168,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-lg mb-1">Phone</h4>
-                      <p className="text-gray-300">+27 76 621 7977</p>
+                      <p>+27 76 621 7977</p>
                     </div>
                   </div>
                 </div>
@@ -188,12 +181,11 @@ const Contact = () => {
   );
 };
 
-// small helper component
 const ContactInfo: React.FC<{
   icon: React.ReactNode;
   label: string;
   href: string;
-  children: string;
+  children: React.ReactNode;
 }> = ({ icon, label, href, children }) => (
   <div className="flex items-start">
     <div className="bg-skyblue p-3 rounded-full mr-4">{icon}</div>
