@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
@@ -7,7 +8,6 @@ import { Mail, Phone, Linkedin, Github } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -29,27 +29,30 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-      };
-
-      await emailjs.send(
-        "service_3ythmc9",
-        "template_5rhr19j",
-        templateParams,
-        "KWHcPs3L9phxJ5IvW"
-      );
-
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitted(true);
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out! I'll get back to you soon.",
-        duration: 5000,
+      const res = await fetch("https://formspree.io/f/mldbkrgw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email,               // enables reply-to in Formspree
+          _subject: "New message from portfolio", // email subject
+        }),
       });
-    } catch (error) {
+
+      if (res.ok) {
+        setFormData({ name: "", email: "", message: "" });
+        setIsSubmitted(true);
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out! I'll get back to you soon.",
+          duration: 5000,
+        });
+      } else {
+        throw new Error("Formspree error");
+      }
+    } catch {
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
@@ -74,15 +77,16 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="animate-fade-up">
               <div className="bg-white p-8 rounded-lg shadow-md">
-                <h3 className="text-2xl font-bold font-montserrat text-navy mb-6">Send a Message</h3>
+                <h3 className="text-2xl font-bold font-montserrat text-navy mb-6">
+                  Send a Message
+                </h3>
                 {isSubmitted ? (
                   <div className="p-6 bg-green-50 rounded-lg text-center">
-                    <h4 className="text-xl font-medium text-green-700 mb-2">Thank you for reaching out!</h4>
+                    <h4 className="text-xl font-medium text-green-700 mb-2">
+                      Thank you for reaching out!
+                    </h4>
                     <p className="text-green-600">I'll get back to you soon.</p>
-                    <Button
-                      className="mt-6"
-                      onClick={() => setIsSubmitted(false)}
-                    >
+                    <Button className="mt-6" onClick={() => setIsSubmitted(false)}>
                       Send Another Message
                     </Button>
                   </div>
@@ -99,8 +103,8 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
                         placeholder="John Doe"
+                        className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
@@ -114,8 +118,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
                         placeholder="john@example.com"
+                        className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
@@ -129,16 +133,12 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         rows={6}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-skyblue focus:border-transparent"
                         placeholder="How can I help you?"
+                        className="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full"
-                      >
+                      <Button type="submit" disabled={isSubmitting} className="w-full">
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </Button>
                     </div>
@@ -148,59 +148,27 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <div className="bg-navy text-white p-8 rounded-lg shadow-md h-full">
                 <h3 className="text-2xl font-bold font-montserrat mb-8">Contact Information</h3>
                 <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-skyblue p-3 rounded-full mr-4">
-                      <Mail className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-lg mb-1">Email</h4>
-                      <a
-                        href="mailto:botyasibusiso@gmail.com"
-                        className="text-gray-300 hover:text-skyblue transition-colors"
-                      >
-                        botyasibusiso@gmail.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="bg-skyblue p-3 rounded-full mr-4">
-                      <Linkedin className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-lg mb-1">LinkedIn</h4>
-                      <a
-                        href="https://linkedin.com/in/sibusiso-botya-7a807224a"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-skyblue transition-colors"
-                      >
-                        linkedin.com/in/sibusiso-botya-7a807224a
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="bg-skyblue p-3 rounded-full mr-4">
-                      <Github className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-lg mb-1">GitHub</h4>
-                      <a
-                        href="https://github.com/SBU0528"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-skyblue transition-colors"
-                      >
-                        github.com/SBU0528
-                      </a>
-                    </div>
-                  </div>
-
+                  <ContactInfo icon={<Mail />} label="Email" href="mailto:botyasibusiso@gmail.com">
+                    botyasibusiso@gmail.com
+                  </ContactInfo>
+                  <ContactInfo
+                    icon={<Linkedin />}
+                    label="LinkedIn"
+                    href="https://linkedin.com/in/sibusiso-botya-7a807224a"
+                  >
+                    linkedin.com/in/sibusiso-botya-7a807224a
+                  </ContactInfo>
+                  <ContactInfo
+                    icon={<Github />}
+                    label="GitHub"
+                    href="https://github.com/SBU0528"
+                  >
+                    github.com/SBU0528
+                  </ContactInfo>
                   <div className="flex items-start">
                     <div className="bg-skyblue p-3 rounded-full mr-4">
                       <Phone className="h-6 w-6 text-white" />
@@ -219,5 +187,23 @@ const Contact = () => {
     </Layout>
   );
 };
+
+// small helper component
+const ContactInfo: React.FC<{
+  icon: React.ReactNode;
+  label: string;
+  href: string;
+  children: string;
+}> = ({ icon, label, href, children }) => (
+  <div className="flex items-start">
+    <div className="bg-skyblue p-3 rounded-full mr-4">{icon}</div>
+    <div>
+      <h4 className="font-medium text-lg mb-1">{label}</h4>
+      <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-skyblue">
+        {children}
+      </a>
+    </div>
+  </div>
+);
 
 export default Contact;
