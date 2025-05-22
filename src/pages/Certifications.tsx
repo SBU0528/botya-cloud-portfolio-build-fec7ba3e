@@ -14,6 +14,7 @@ import {
   Server,
   MessageCircle,
   Mail,
+  Windows,        // added Microsoft logo icon
 } from "lucide-react";
 
 interface Certification {
@@ -117,7 +118,12 @@ const Certifications: React.FC = () => {
       issuer: "Starweaver",
       date: "Mar 2025",
       id: "NNTM0DJMU6Y9",
-      skills: ["Oral Communication", "Speech", "Verbal Behavior", "Communication Training"],
+      skills: [
+        "Oral Communication",
+        "Speech",
+        "Verbal Behavior",
+        "Communication Training",
+      ],
       link: "https://coursera.org/verify/NNTM0DJMU6Y9",
       icon: MessageCircle,
     },
@@ -130,24 +136,25 @@ const Certifications: React.FC = () => {
       link: "https://coursera.org/verify/CDI63MS6WCY6",
       icon: Mail,
     },
-    // ──────── New Certificate ────────
+    // ───────── New Microsoft Azure Certificate ─────────
     {
-      title: "Cloud Computing",
-      issuer: "Coursera",
+      title: "Introduction to Microsoft Azure Cloud Services",
+      issuer: "Microsoft",
       date: "May 2025",
-      id: "Jjm0D17QQzm5tA9e0OM5UQ",
-      skills: ["Cloud Computing"],
-      link: "https://coursera.org/verify/Jjm0D17QQzm5tA9e0OM5UQ",
-      icon: Cloud,
+      id: "KELY2TCWXD1Y",
+      skills: ["Microsoft Azure", "Cloud Services"],
+      link: "https://coursera.org/verify/KELY2TCWXD1Y",
+      icon: Windows,
     },
   ];
 
-  const filteredCertifications = certifications.filter((cert) =>
-    cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cert.skills.some((skill) =>
-      skill.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+  const filteredCertifications = certifications.filter(
+    (cert) =>
+      cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      cert.skills.some((skill) =>
+        skill.toLowerCase().includes(searchTerm.toLowerCase())
+      )
   );
 
   return (
@@ -196,12 +203,20 @@ const Certifications: React.FC = () => {
                     </h3>
                   </div>
                   <div className="mb-4 text-gray-700 dark:text-gray-300">
-                    <p><span className="font-medium">Issuer:</span> {cert.issuer}</p>
-                    <p><span className="font-medium">Date:</span> {cert.date}</p>
-                    <p><span className="font-medium">Credential ID:</span> {cert.id}</p>
+                    <p>
+                      <span className="font-medium">Issuer:</span> {cert.issuer}
+                    </p>
+                    <p>
+                      <span className="font-medium">Date:</span> {cert.date}
+                    </p>
+                    <p>
+                      <span className="font-medium">Credential ID:</span> {cert.id}
+                    </p>
                   </div>
                   <div className="mb-4">
-                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">Skills:</h4>
+                    <h4 className="font-medium text-navy dark:text-gray-100 mb-2">
+                      Skills:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, i) => (
                         <span
