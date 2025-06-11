@@ -10,9 +10,9 @@ const About = () => {
         <Section padding="lg">
           <PageHeader title="About Me" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Profile Image */}
-            <div className="flex justify-center md:justify-end animate-fade-up">
+            <div className="flex flex-col items-center gap-6 animate-fade-up">
               <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
                 <img 
                   src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png" 
@@ -20,10 +20,19 @@ const About = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
+
+              {/* CV Preview Image */}
+              <div className="w-full max-w-[300px] rounded-lg shadow-md">
+                <img 
+                  src="/81996f5b-e681-4ee5-985d-cf0fde442096.jpg" 
+                  alt="Sibusiso Botya CV Preview" 
+                  className="w-full object-cover rounded-lg"
+                />
+              </div>
             </div>
 
             {/* About Text */}
-            <section className="prose mx-auto py-12 text-gray-900 dark:text-gray-100">
+            <section className="prose mx-auto py-8 text-gray-900 dark:text-gray-100">
               <p className="text-lg leading-relaxed mb-4">
                 Highly motivated and detail-oriented IT professional with a background in the security industry. 
                 In 2018, I developed a passion for IT and pursued further education.
@@ -43,7 +52,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
               >
-                📄 View My CV
+                📄 View My CV (PDF)
               </a>
             </section>
           </div>
