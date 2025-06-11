@@ -32,9 +32,19 @@ const About = () => {
                 In 2023, I enrolled in Optimi College's online program and successfully completed the A+, N+, and CCNA bundle course, 
                 earning my certification in 2024.
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed mb-6">
                 Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in the dynamic field of cloud computing.
               </p>
+
+              {/* CV Download Button */}
+              <a
+                href="/Sibusiso_Botya_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+              >
+                📄 View My CV
+              </a>
             </section>
           </div>
         </Section>
@@ -90,4 +100,3 @@ const About = () => {
 };
 
 export default About;
-
