@@ -12,21 +12,12 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Profile Image */}
-            <div className="flex flex-col items-center gap-6 animate-fade-up">
+            <div className="flex justify-center md:justify-end animate-fade-up">
               <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
                 <img 
                   src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png" 
                   alt="Sibusiso Botya Portrait" 
                   className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* CV Preview Image */}
-              <div className="w-full max-w-[300px] rounded-lg shadow-md">
-                <img 
-                  src="/81996f5b-e681-4ee5-985d-cf0fde442096.jpg" 
-                  alt="Sibusiso Botya CV Preview" 
-                  className="w-full object-cover rounded-lg"
                 />
               </div>
             </div>
@@ -45,14 +36,14 @@ const About = () => {
                 Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in the dynamic field of cloud computing.
               </p>
 
-              {/* CV Download Button */}
+              {/* CV View Button (JPG) */}
               <a
-                href="/Sibusiso_Botya_CV.pdf"
+                href="/Sibusiso_Botya_CV.jpg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
               >
-                📄 View My CV (PDF)
+                🖼️ View My CV (JPG)
               </a>
             </section>
           </div>
