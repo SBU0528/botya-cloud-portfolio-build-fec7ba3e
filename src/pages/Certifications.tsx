@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState } from "react";
 import Layout from "@/components/Layout";
@@ -14,7 +15,8 @@ import {
   Server,
   MessageCircle,
   Mail,
-  Award, // new icon for Microsoft cert
+  Award,
+  Clock, // new icon for time management cert
 } from "lucide-react";
 
 interface Certification {
@@ -136,7 +138,6 @@ const Certifications: React.FC = () => {
       link: "https://coursera.org/verify/CDI63MS6WCY6",
       icon: Mail,
     },
-    // ───────── New Microsoft Azure Certificate ─────────
     {
       title: "Introduction to Microsoft Azure Cloud Services",
       issuer: "Microsoft",
@@ -144,7 +145,17 @@ const Certifications: React.FC = () => {
       id: "KELY2TCWXD1Y",
       skills: ["Microsoft Azure", "Cloud Services"],
       link: "https://coursera.org/verify/KELY2TCWXD1Y",
-      icon: Award, // using Award icon for this entry
+      icon: Award,
+    },
+    // ───────── New Time Management Certificate ─────────
+    {
+      title: "Work Smarter, Not Harder: Time Management for Personal & Professional Productivity",
+      issuer: "University of California, Irvine",
+      date: "May 2025",
+      id: "514VSLW9RCJ9",
+      skills: ["Time Management", "Productivity", "Professional Development"],
+      link: "#", // placeholder for credential URL
+      icon: Clock,
     },
   ];
 
@@ -169,8 +180,7 @@ const Certifications: React.FC = () => {
           <div className="mb-12 max-w-md mx-auto">
             <div className="relative">
               <Search
-                size={20}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5"
               />
               <input
                 type="text"
@@ -190,7 +200,7 @@ const Certifications: React.FC = () => {
                 className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow hover:shadow-lg transition"
               >
                 <div className="flex items-center mb-4">
-                  <cert.icon className="text-sky-400 mr-3" size={24} />
+                  <cert.icon className="text-sky-400 mr-3 w-6 h-6" />
                   <h3 className="font-semibold text-navy dark:text-gray-100">
                     {cert.title}
                   </h3>
@@ -213,7 +223,7 @@ const Certifications: React.FC = () => {
                       {openCertId === cert.id
                         ? "Hide Certificate"
                         : "Show Credential"}{" "}
-                      <ExternalLink className="ml-1" size={16} />
+                      <ExternalLink className="ml-1 w-4 h-4" />
                     </button>
                     {openCertId === cert.id && (
                       <img
@@ -230,7 +240,7 @@ const Certifications: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-sky-400 hover:text-navy"
                   >
-                    Show Credential <ExternalLink className="ml-1" size={16} />
+                    Show Credential <ExternalLink className="ml-1 w-4 h-4" />
                   </a>
                 )}
               </div>
