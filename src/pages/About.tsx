@@ -1,9 +1,10 @@
+import React from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import { User, Server, Database, Network } from "lucide-react";
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <Layout>
       <div className="pt-24 md:pt-28">
@@ -14,9 +15,9 @@ const About = () => {
             {/* Profile Image */}
             <div className="flex justify-center md:justify-end animate-fade-up">
               <div className="w-[300px] h-[300px] rounded-lg overflow-hidden shadow-md">
-                <img 
-                  src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png" 
-                  alt="Sibusiso Botya Portrait" 
+                <img
+                  src="/lovable-uploads/9033c80d-da2a-4337-b524-9108b5796649.png"
+                  alt="Sibusiso Botya Portrait"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -25,11 +26,11 @@ const About = () => {
             {/* About Text */}
             <section className="prose mx-auto py-8 text-gray-900 dark:text-gray-100">
               <p className="text-lg leading-relaxed mb-4">
-                Highly motivated and detail-oriented IT professional with a background in the security industry. 
+                Highly motivated and detail-oriented IT professional with a background in the security industry.
                 In 2018, I developed a passion for IT and pursued further education.
               </p>
               <p className="text-lg leading-relaxed mb-4">
-                In 2023, I enrolled in Optimi College's online program and successfully completed the A+, N+, and CCNA bundle course, 
+                In 2023, I enrolled in Optimi College's online program and successfully completed the A+, N+, and CCNA bundle course,
                 earning my certification in 2024.
               </p>
               <p className="text-lg leading-relaxed mb-6">
@@ -60,26 +61,26 @@ const About = () => {
               {
                 icon: <Server className="h-12 w-12 text-skyblue mb-4" />,
                 title: "Cloud Infrastructure",
-                skills: ["AWS", "Azure", "Cloud Architecture", "Infrastructure as Code"]
+                skills: ["AWS", "Azure", "Cloud Architecture", "Infrastructure as Code"],
               },
               {
                 icon: <Network className="h-12 w-12 text-skyblue mb-4" />,
                 title: "Networking",
-                skills: ["CCNA Certified", "Network Security", "Routing & Switching", "Troubleshooting"]
+                skills: ["CCNA Certified", "Network Security", "Routing & Switching", "Troubleshooting"],
               },
               {
                 icon: <Database className="h-12 w-12 text-skyblue mb-4" />,
                 title: "Technical Expertise",
-                skills: ["Hardware Troubleshooting", "Operating Systems", "System Administration"]
+                skills: ["Hardware Troubleshooting", "Operating Systems", "System Administration"],
               },
               {
                 icon: <User className="h-12 w-12 text-skyblue mb-4" />,
                 title: "Professional Skills",
-                skills: ["Communication", "Problem Solving", "Detail Oriented", "Continuous Learning"]
-              }
+                skills: ["Communication", "Problem Solving", "Detail Oriented", "Continuous Learning"],
+              },
             ].map((skill, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white p-6 rounded-lg shadow-md text-center animate-fade-up"
                 style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               >
@@ -87,7 +88,9 @@ const About = () => {
                 <h3 className="text-xl font-bold font-montserrat text-navy mb-4">{skill.title}</h3>
                 <ul className="space-y-2">
                   {skill.skills.map((item, i) => (
-                    <li key={i} className="text-gray-700">{item}</li>
+                    <li key={i} className="text-gray-700">
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
