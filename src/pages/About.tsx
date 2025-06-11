@@ -4,6 +4,9 @@ import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import { User, Server, Database, Network } from "lucide-react";
 
+// Import your CV image from src/assets so that bundler handles it
+import cvImage from "@/assets/Sibusiso-Botya_Cloud_CV2025.jpg";
+
 const About: React.FC = () => {
   return (
     <Layout>
@@ -37,7 +40,7 @@ const About: React.FC = () => {
 
               {/* CV View Button */}
               <a
-                href="/Sibusiso-Botya_Cloud_CV2025.jpg"
+                href={cvImage}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
@@ -56,10 +59,10 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <Server className="h-12 w-12 text-skyblue mb-4" />, title: "Cloud Infrastructure", skills: ["AWS", "Azure", "Cloud Architecture", "Infrastructure as Code"] },
-              { icon: <Network className="h-12 w-12 text-skyblue mb-4" />, title: "Networking", skills: ["CCNA Certified", "Network Security", "Routing & Switching", "Troubleshooting"] },
-              { icon: <Database className="h-12 w-12 text-skyblue mb-4" />, title: "Technical Expertise", skills: ["Hardware Troubleshooting", "Operating Systems", "System Administration"] },
-              { icon: <User className="h-12 w-12 text-skyblue mb-4" />, title: "Professional Skills", skills: ["Communication", "Problem Solving", "Detail Oriented", "Continuous Learning"] },
+              { icon: <Server className="h-12 w-12 text-skyblue mb-4" />,   title: "Cloud Infrastructure", skills: ["AWS", "Azure", "Cloud Architecture", "Infrastructure as Code"] },
+              { icon: <Network className="h-12 w-12 text-skyblue mb-4" />,   title: "Networking",            skills: ["CCNA Certified", "Network Security", "Routing & Switching", "Troubleshooting"] },
+              { icon: <Database className="h-12 w-12 text-skyblue mb-4" />,  title: "Technical Expertise",   skills: ["Hardware Troubleshooting", "Operating Systems", "System Administration"] },
+              { icon: <User className="h-12 w-12 text-skyblue mb-4" />,      title: "Professional Skills",   skills: ["Communication", "Problem Solving", "Detail Oriented", "Continuous Learning"] },
             ].map((skill, i) => (
               <div
                 key={i}
@@ -70,9 +73,7 @@ const About: React.FC = () => {
                 <h3 className="text-xl font-bold font-montserrat text-navy mb-4">{skill.title}</h3>
                 <ul className="space-y-2">
                   {skill.skills.map((s, j) => (
-                    <li key={j} className="text-gray-700">
-                      {s}
-                    </li>
+                    <li key={j} className="text-gray-700">{s}</li>
                   ))}
                 </ul>
               </div>
