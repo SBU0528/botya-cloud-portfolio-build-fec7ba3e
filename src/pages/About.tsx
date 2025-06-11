@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
@@ -8,6 +9,12 @@ import { User, Server, Database, Network } from "lucide-react";
 import cvImage from "@/assets/Sibusiso-Botya_Cloud_CV2025.jpg";
 
 const About: React.FC = () => {
+  const [showCV, setShowCV] = useState(false);
+
+  const toggleCV = () => {
+    setShowCV(!showCV);
+  };
+
   return (
     <Layout>
       <div className="pt-24 md:pt-28">
@@ -39,14 +46,23 @@ const About: React.FC = () => {
               </p>
 
               {/* CV View Button */}
-              <a
-                href={cvImage}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={toggleCV}
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
               >
-                🖼️ View My CV
-              </a>
+                🖼️ {showCV ? "Hide My CV" : "View My CV"}
+              </button>
+
+              {/* CV Display */}
+              {showCV && (
+                <div className="mt-6">
+                  <img
+                    src="/Sibusiso-Botya_CV.jpg/Sibusiso-Botya_Cloud_CV2025.jpg"
+                    alt="Sibusiso Botya CV"
+                    className="w-full rounded-lg shadow-lg border border-gray-200"
+                  />
+                </div>
+              )}
             </section>
           </div>
         </Section>
