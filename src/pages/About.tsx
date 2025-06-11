@@ -27,14 +27,12 @@ const About: React.FC = () => {
             <section className="prose mx-auto py-8 text-gray-900 dark:text-gray-100">
               <p className="text-lg leading-relaxed mb-4">
                 Highly motivated and detail-oriented IT professional with a background in the security industry.
-                In 2018, I developed a passion for IT and pursued further education.
               </p>
               <p className="text-lg leading-relaxed mb-4">
-                In 2023, I enrolled in Optimi College's online program and successfully completed the A+, N+, and CCNA bundle course,
-                earning my certification in 2024.
+                In 2023, I enrolled in Optimi College's online program and successfully completed the A+, N+, and CCNA bundle course, earning my certification in 2024.
               </p>
               <p className="text-lg leading-relaxed mb-6">
-                Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in the dynamic field of cloud computing.
+                Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in cloud computing.
               </p>
 
               {/* CV View Button */}
@@ -58,38 +56,22 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                icon: <Server className="h-12 w-12 text-skyblue mb-4" />,
-                title: "Cloud Infrastructure",
-                skills: ["AWS", "Azure", "Cloud Architecture", "Infrastructure as Code"],
-              },
-              {
-                icon: <Network className="h-12 w-12 text-skyblue mb-4" />,
-                title: "Networking",
-                skills: ["CCNA Certified", "Network Security", "Routing & Switching", "Troubleshooting"],
-              },
-              {
-                icon: <Database className="h-12 w-12 text-skyblue mb-4" />,
-                title: "Technical Expertise",
-                skills: ["Hardware Troubleshooting", "Operating Systems", "System Administration"],
-              },
-              {
-                icon: <User className="h-12 w-12 text-skyblue mb-4" />,
-                title: "Professional Skills",
-                skills: ["Communication", "Problem Solving", "Detail Oriented", "Continuous Learning"],
-              },
-            ].map((skill, index) => (
+              { icon: <Server className="h-12 w-12 text-skyblue mb-4" />, title: "Cloud Infrastructure", skills: ["AWS", "Azure", "Cloud Architecture", "Infrastructure as Code"] },
+              { icon: <Network className="h-12 w-12 text-skyblue mb-4" />, title: "Networking", skills: ["CCNA Certified", "Network Security", "Routing & Switching", "Troubleshooting"] },
+              { icon: <Database className="h-12 w-12 text-skyblue mb-4" />, title: "Technical Expertise", skills: ["Hardware Troubleshooting", "Operating Systems", "System Administration"] },
+              { icon: <User className="h-12 w-12 text-skyblue mb-4" />, title: "Professional Skills", skills: ["Communication", "Problem Solving", "Detail Oriented", "Continuous Learning"] },
+            ].map((skill, i) => (
               <div
-                key={index}
+                key={i}
                 className="bg-white p-6 rounded-lg shadow-md text-center animate-fade-up"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                style={{ animationDelay: `${0.2 + i * 0.1}s` }}
               >
                 <div className="flex justify-center">{skill.icon}</div>
                 <h3 className="text-xl font-bold font-montserrat text-navy mb-4">{skill.title}</h3>
                 <ul className="space-y-2">
-                  {skill.skills.map((item, i) => (
-                    <li key={i} className="text-gray-700">
-                      {item}
+                  {skill.skills.map((s, j) => (
+                    <li key={j} className="text-gray-700">
+                      {s}
                     </li>
                   ))}
                 </ul>
