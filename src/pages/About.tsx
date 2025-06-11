@@ -38,7 +38,7 @@ const About = () => {
 
               {/* CV View Button (JPG) */}
               <a
-                href="/Sibusiso_Botya_CV.jpg"
+                href="/Sibusiso-Botya_Cloud_CV2025.jpg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
