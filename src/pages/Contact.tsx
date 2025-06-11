@@ -1,10 +1,11 @@
+
 "use client";
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
-import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -137,10 +138,38 @@ const Contact = () => {
                 <ContactInfo icon={<Github />} label="GitHub" href="https://github.com/SBU0528">
                   github.com/SBU0528
                 </ContactInfo>
+                <ContactInfo icon={<Phone />} label="Phone" href="tel:+27766217977">
+                  +27 76 621 7977
+                </ContactInfo>
                 <div className="flex items-start">
-                  <div className="bg-skyblue p-3 rounded-full mr-4"><Phone className="h-6 w-6 text-white"/></div>
-                  <div><h4 className="font-medium text-lg mb-1">Phone</h4><p>+27 76 621 7977</p></div>
+                  <div className="bg-skyblue p-3 rounded-full mr-4"><MapPin className="h-6 w-6 text-white"/></div>
+                  <div>
+                    <h4 className="font-medium text-lg mb-1">Location</h4>
+                    <p className="text-gray-300">28 Charles Hoffe, Van Riebeeckstrand<br />Melkbosstrand, Cape Town<br />Western Cape, South Africa</p>
+                  </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Google Map Section */}
+        <Section background="gray" padding="lg">
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-navy mb-8 text-center animate-fade-up">
+              Find Me Here
+            </h3>
+            <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.7!2d18.2573!3d-33.7321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c8c8c8c8c8c%3A0x8c8c8c8c8c8c8c8c!2s28%20Charles%20Hoffe%20St%2C%20Van%20Riebeeckstrand%2C%20Melkbosstrand%2C%207441%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1635959999999!5m2!1sen!2sus"
+                  className="w-full h-64 md:h-96 rounded-lg border-0"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Sibusiso Botya Location - 28 Charles Hoffe, Van Riebeeckstrand, Melkbosstrand, Cape Town"
+                />
               </div>
             </div>
           </div>
