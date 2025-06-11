@@ -36,14 +36,14 @@ const About = () => {
                 Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in the dynamic field of cloud computing.
               </p>
 
-              {/* CV View Button (JPG) */}
+              {/* CV View Button */}
               <a
                 href="/Sibusiso-Botya_Cloud_CV2025.jpg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
               >
-                🖼️ View My CV (JPG)
+                🖼️ View My CV
               </a>
             </section>
           </div>
