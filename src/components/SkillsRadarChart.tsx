@@ -122,7 +122,7 @@ const SkillsRadarChart = () => {
                 fillOpacity={0.3} 
                 stroke="#8B5CF6" 
                 strokeWidth={2}
-                onMouseOver={(data) => setActiveSkill(data.name as string)}
+                onMouseOver={(data) => setActiveSkill(data?.payload?.name as string)}
                 onMouseOut={() => setActiveSkill(null)}
               />
             </RadarChart>
