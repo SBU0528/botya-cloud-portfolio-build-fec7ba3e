@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from "react";
 import Layout from "@/components/Layout";
@@ -16,7 +15,6 @@ import {
   MessageCircle,
   Mail,
   Award,
-  Clock, // new icon for time management cert
 } from "lucide-react";
 
 interface Certification {
@@ -147,15 +145,14 @@ const Certifications: React.FC = () => {
       link: "https://coursera.org/verify/KELY2TCWXD1Y",
       icon: Award,
     },
-    // ───────── New Time Management Certificate ─────────
     {
       title: "Work Smarter, Not Harder: Time Management for Personal & Professional Productivity",
       issuer: "University of California, Irvine",
       date: "May 2025",
       id: "514VSLW9RCJ9",
-      skills: ["Time Management", "Productivity", "Professional Development"],
-      link: "#", // placeholder for credential URL
-      icon: Clock,
+      skills: ["Time Management", "Productivity", "Workplace Skills"],
+      link: "https://www.coursera.org/account/accomplishments/certificate/514VSLW9RCJ9",
+      icon: Award,
     },
   ];
 
