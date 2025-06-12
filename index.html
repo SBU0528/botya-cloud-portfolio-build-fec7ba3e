@@ -1,46 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sibusiso Botya - Cloud Computing Professional</title>
-    <meta name="description" content="Portfolio of Sibusiso Botya - Cloud Associate at CAPACITI specializing in cloud infrastructure and networking" />
-    <meta name="author" content="Sibusiso Botya" />
-    <meta name="keywords" content="cloud computing, network security, CCNA, cloud infrastructure, IT professional" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Important: ensures CSS/JS/assets load correctly when hosted under a subpath -->
+  <base href="/botya-cloud-portfolio-build-fec7ba3e/">
+  <title>Sibusiso Botya — Cloud Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Hero / Header -->
+  <header class="hero">
+    <h1>Sibusiso Botya</h1>
+    <p>Cloud Computing Professional</p>
+  </header>
 
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Sibusiso Botya - Cloud Computing Professional" />
-    <meta property="og:description" content="Portfolio of Sibusiso Botya - Cloud Associate at CAPACITI" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projects & Achievements</h2>
+    <div class="project-card">
+      <!-- Replace this thumbnail with your own -->
+      <img src="assets/project-thumbnail.png" alt="My First Project Screenshot" />
+      <h3>My First Project</h3>
+      <p>A cloud-themed portfolio site deployed via GitHub Pages.</p>
+      <div class="buttons">
+        <a class="btn" href="https://sbu0528.github.io/botya-cloud-portfolio-build-fec7ba3e/" target="_blank">
+          View Live
+        </a>
+        <a class="btn" href="https://github.com/SBU0528/botya-cloud-portfolio-build" target="_blank">
+          View Code
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@sibusiso_botya" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Google Analytics (Uncomment and add your tracking ID) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script> -->
-  </head>
+  <!-- Education Section -->
+  <section id="education" class="education">
+    <h2 class="prof-dev-gradient">Professional Development</h2>
+    <!-- Your education content here -->
+  </section>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <!-- Your contact form or details -->
+  </section>
+
+  <!-- Optional: your global JS -->
+  <script src="script.js"></script>
+</body>
 </html>
