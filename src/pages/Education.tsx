@@ -230,22 +230,7 @@ const Education = () => {
               </div>
 
               {/* GitHub Pages Setup Instructions */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
-                <div className="flex items-start gap-2">
-                  <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="text-sm font-medium text-blue-900 mb-2">GitHub Pages Setup Instructions</h4>
-                    <p className="text-xs text-blue-700 mb-2">To deploy your own project via GitHub Pages:</p>
-                    <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
-                      <li>Navigate to your repository Settings</li>
-                      <li>Click on Pages in the left sidebar</li>
-                      <li>Select "Deploy from a branch" under Source</li>
-                      <li>Choose "main" branch and "/ (root)" folder</li>
-                      <li>Click Save and wait for deployment</li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
         </Section>
