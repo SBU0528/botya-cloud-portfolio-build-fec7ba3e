@@ -1,3 +1,4 @@
+
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
@@ -180,54 +181,78 @@ const Education = () => {
             </div>
           </div>
         </Section>
-{/* Projects Section */}  
-<Section background="white" padding="lg">
-  <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
-    Projects
-  </h2>
 
-  <div className="max-w-4xl mx-auto">
-    <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
-      <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
-      <p className="text-gray-700 mb-6">
-        A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
-      </p>
-
-      <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
-        <div className="flex items-center gap-2">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
+        {/* Projects Section */}
+        <Section background="white" padding="lg">
+          <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
+            Projects
+          </h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
+              <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
+              <p className="text-gray-700 mb-6">
+                A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
+                <div className="flex items-center gap-2">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href="https://botya-cloud-portfolio-build-web.lovable.app/"
+                        
+                        
+                          className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
+                        >
+                          <ExternalLink size={18} />
+                          View Live
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Opens in new tab</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                    Live – Deployed via GitHub Pages
+                  </Badge>
+                </div>
                 <a
-                  href="https://botya-cloud-portfolio-build-web.lovable.app/"
+                  href="https://github.com/SBU0528/botya-cloud-portfolio-build"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
                 >
-                  <ExternalLink size={18} />
-                  View Live
+                  <Github size={18} />
+                  View Code
                 </a>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Opens in new tab</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-            Live – Hosted on Lovable
-          </Badge>
-        </div>
-        <a
-          href="https://github.com/SBU0528/botya-cloud-portfolio-build"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
-        >
-          <Github size={18} />
-          View Code
-        </a>
-      </div>
-    </div>
-  </div>
-</Section>
+              </div>
 
+              {/* GitHub Pages Setup Instructions */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+                <div className="flex items-start gap-2">
+                  <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-blue-900 mb-2">GitHub Pages Setup Instructions</h4>
+                    <p className="text-xs text-blue-700 mb-2">To deploy your own project via GitHub Pages:</p>
+                    <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
+                      <li>Navigate to your repository Settings</li>
+                      <li>Click on Pages in the left sidebar</li>
+                      <li>Select "Deploy from a branch" under Source</li>
+                      <li>Choose "main" branch and "/ (root)" folder</li>
+                      <li>Click Save and wait for deployment</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+      </div>
+    </Layout>
+  );
+};
+
+export default Education;
