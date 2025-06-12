@@ -218,7 +218,7 @@ const Education = () => {
           </Badge>
         </div>
         <a
-          href="https://github.com/SBU0528/botya-cloud-portfolio-build"
+          href="https://botya-cloud-portfolio-build-web.lovable.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
