@@ -166,29 +166,22 @@ const Education = () => {
             </div>
           </div>
         </Section>
+        
+{/* Projects Section */}
+<Section background="white" padding="lg">
+  <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
+    Projects
+  </h2>
 
-        {/* Projects Section */}
-        <Section background="white" padding="lg">
-          <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
-            Projects
-          </h2>
+  <div className="max-w-4xl mx-auto">
+    <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
+      <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
+      <p className="text-gray-700 mb-6">
+        A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
+      </p>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
-              <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
-              <p className="text-gray-700 mb-6">
-                A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
-              </p>
+      {/* 💡 Button removed */}
+    </div>
+  </div>
+</Section>
 
-              <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-                Live – Hosted on Lovable
-              </Badge>
-            </div>
-          </div>
-        </Section>
-      </div>
-    </Layout>
-  );
-};
-
-export default Education;
