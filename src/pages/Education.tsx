@@ -180,28 +180,8 @@ const Education = () => {
         A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
       </p>
 
-      <div className="flex gap-4">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <a
-                href="https://github.com/botya-dev/cloud-portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white font-medium rounded-lg hover:bg-skyblue transition-colors duration-200 gap-2"
-              >
-                <Github size={18} />
-                View Code
-              </a>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>GitHub Repository</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
+      {/* 💡 Button removed */}
     </div>
   </div>
 </Section>
-
 
