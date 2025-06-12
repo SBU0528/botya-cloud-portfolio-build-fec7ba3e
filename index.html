@@ -4,7 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sibusiso Botya — Cloud Portfolio</title>
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Simple reset + flex for project buttons */
+    body { margin: 0; font-family: sans-serif; color: #1f2937; }
+    .hero { text-align: center; padding: 4rem 1rem; background: #f3f4f6; }
+    .projects, .education, .contact { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    .project-card { border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .project-card img { width: 100%; border-radius: 0.5rem; margin-bottom: 1rem; }
+    .buttons { display: flex; gap: 1rem; }
+    .btn { flex: 1; text-decoration: none; text-align: center; padding: 0.75rem; border: 1px solid #3b82f6; border-radius: 0.5rem; font-weight: 600; }
+    .btn:hover { background: #3b82f6; color: white; }
+    .prof-dev-gradient {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #4F46E5, #3B82F6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Hero / Header -->
@@ -15,8 +38,9 @@
 
   <!-- Projects Section -->
   <section id="projects" class="projects">
-    <h2>Projects & Achievements</h2>
+    <h2>Projects &amp; Achievements</h2>
     <div class="project-card">
+      <!-- Replace with your actual thumbnail -->
       <img src="assets/project-thumbnail.png" alt="My First Project Screenshot" />
       <h3>My First Project</h3>
       <p>A cloud-themed portfolio site deployed via GitHub Pages.</p>
@@ -38,15 +62,22 @@
   <!-- Education Section -->
   <section id="education" class="education">
     <h2 class="prof-dev-gradient">Professional Development</h2>
-    <!-- Your education content here -->
+    <ul>
+      <li>A+ Certification – 2024</li>
+      <li>Network+ Certification – 2024</li>
+      <li>CCNA – 2024</li>
+      <li>Cloud Associate – 2025</li>
+    </ul>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <!-- Your contact form or details -->
+    <p>Email: sibusiso.botya@example.com</p>
+    <p>Phone: 076 621 7977</p>
   </section>
 
+  <!-- Optional: your global JS -->
   <script src="script.js"></script>
 </body>
 </html>
