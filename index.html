@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sibusiso Botya — Cloud Portfolio</title>
-  <!-- Point directly to the CSS in your GH Pages repo root -->
-  <link rel="stylesheet" href="/botya-cloud-portfolio-build-fec7ba3e/style.css" />
+  <!-- Use relative paths so assets load under your repo’s subpath -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Hero / Header -->
@@ -19,19 +19,19 @@
     <h2>Projects & Achievements</h2>
     <div class="project-card">
       <!-- Thumbnail from the assets folder -->
-      <img src="/botya-cloud-portfolio-build-fec7ba3e/assets/project-thumbnail.png"
+      <img src="assets/project-thumbnail.png"
            alt="My First Project Screenshot" />
       <h3>My First Project</h3>
       <p>A cloud-themed portfolio site deployed via GitHub Pages.</p>
       <div class="buttons">
         <a class="btn"
            href="https://sbu0528.github.io/botya-cloud-portfolio-build-fec7ba3e/"
-           target="_blank">
+           target="_blank" rel="noopener">
           View Live
         </a>
         <a class="btn"
            href="https://github.com/SBU0528/botya-cloud-portfolio-build"
-           target="_blank">
+           target="_blank" rel="noopener">
           View Code
         </a>
       </div>
@@ -51,6 +51,6 @@
   </section>
 
   <!-- Global JS file -->
-  <script src="/botya-cloud-portfolio-build-fec7ba3e/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
