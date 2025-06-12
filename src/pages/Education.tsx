@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
@@ -201,9 +200,9 @@ const Education = () => {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <a
-                          href="https://botya-cloud-portfolio-build-web.lovable.app/"
-                        
-                        
+                          href="https://sbu0528.github.io/botya-cloud-portfolio-build-fec7ba3e/"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
                         >
                           <ExternalLink size={18} />
