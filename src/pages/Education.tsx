@@ -2,9 +2,11 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import { GraduationCap, Briefcase, Calendar, ExternalLink, Github } from "lucide-react";
+import { GraduationCap, Briefcase, Calendar, ExternalLink, Github, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Education = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -193,16 +195,30 @@ const Education = () => {
                 A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                <a
-                  href="https://sbu0528.github.io/botya-cloud-portfolio-build/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
-                >
-                  <ExternalLink size={18} />
-                  View Live
-                </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
+                <div className="flex items-center gap-2">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href="https://sbu0528.github.io/botya-cloud-portfolio-build-fec7ba3e/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
+                        >
+                          <ExternalLink size={18} />
+                          View Live
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Opens in new tab</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                    Live – Deployed via GitHub Pages
+                  </Badge>
+                </div>
                 <a
                   href="https://github.com/SBU0528/botya-cloud-portfolio-build"
                   target="_blank"
@@ -212,6 +228,24 @@ const Education = () => {
                   <Github size={18} />
                   View Code
                 </a>
+              </div>
+
+              {/* GitHub Pages Setup Instructions */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+                <div className="flex items-start gap-2">
+                  <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-medium text-blue-900 mb-2">GitHub Pages Setup Instructions</h4>
+                    <p className="text-xs text-blue-700 mb-2">To deploy your own project via GitHub Pages:</p>
+                    <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
+                      <li>Navigate to your repository Settings</li>
+                      <li>Click on Pages in the left sidebar</li>
+                      <li>Select "Deploy from a branch" under Source</li>
+                      <li>Choose "main" branch and "/ (root)" folder</li>
+                      <li>Click Save and wait for deployment</li>
+                    </ol>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
