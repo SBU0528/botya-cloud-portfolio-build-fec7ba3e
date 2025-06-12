@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 
@@ -25,14 +26,14 @@ const SkillsRadarChart = () => {
     { skill: 'Cybersecurity', level: 80 },
   ];
 
-  const handleMouseEnter = (data: any, index: number, event: React.MouseEvent<SVGElement>) => {
-    if (data && data.payload) {
-      setActiveSkill(data.payload.skill);
+  const handleMouseEnter = (props: any, e: React.MouseEvent<SVGPolygonElement>) => {
+    if (props && props.payload) {
+      setActiveSkill(props.payload.skill);
       setTooltipData({
-        skill: data.payload.skill,
-        level: data.payload.level,
-        x: event.clientX,
-        y: event.clientY
+        skill: props.payload.skill,
+        level: props.payload.level,
+        x: e.clientX,
+        y: e.clientY
       });
     }
   };
