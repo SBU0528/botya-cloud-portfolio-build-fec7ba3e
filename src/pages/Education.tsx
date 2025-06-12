@@ -143,7 +143,7 @@ const Education = () => {
         
         {/* Professional Development Section */}
         <Section background="gray" padding="lg">
-          <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center animate-fade-up">
+          <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
             Professional Development
           </h2>
           
