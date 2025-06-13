@@ -205,28 +205,6 @@ const Education = () => {
                   <Github size={18} />
                   View Code
                 </a>
-                <a
-                  href="/Sibusiso-Botya_CV.jpg"
-                  download="Sibusiso-Botya_CV.jpg"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-bold rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
-                >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="18" 
-                    height="18" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7,10 12,15 17,10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                  </svg>
-                  Download CV
-                </a>
               </div>
               {/* Netlify Deployment Information */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
