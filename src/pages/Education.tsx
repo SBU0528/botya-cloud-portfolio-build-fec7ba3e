@@ -1,3 +1,4 @@
+
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
@@ -171,7 +172,7 @@ const Education = () => {
             <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
               <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
               <p className="text-gray-700 mb-6">
-                A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using GitHub Pages, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
+                A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using Netlify, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
                 <div className="flex items-center gap-2">
@@ -192,11 +193,11 @@ const Education = () => {
                     </Tooltip>
                   </TooltipProvider>
                   <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-                    Live – Deployed via GitHub Pages
+                    Live – Deployed via Netlify
                   </Badge>
                 </div>
                 <a
-                  href="https://github.com/SBU0528/botya-cloud-portfolio-build"
+                  href="https://github.com/SBU0528/botya-cloud-portfolio-build-fec7ba3e"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
@@ -205,20 +206,19 @@ const Education = () => {
                   View Code
                 </a>
               </div>
-              {/* GitHub Pages Setup */}
+              {/* Netlify Deployment Information */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
                 <div className="flex items-start gap-2">
                   <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="text-sm font-medium text-blue-900 mb-2">GitHub Pages Setup Instructions</h4>
-                    <p className="text-xs text-blue-700 mb-2">To deploy your own project via GitHub Pages:</p>
-                    <ol className="text-xs text-blue-700 space-y-1 list-decimal list-inside">
-                      <li>Navigate to your repository Settings</li>
-                      <li>Click on Pages in the left sidebar</li>
-                      <li>Select "Deploy from a branch" under Source</li>
-                      <li>Choose "main" branch and "/ (root)" folder</li>
-                      <li>Click Save and wait for deployment</li>
-                    </ol>
+                    <h4 className="text-sm font-medium text-blue-900 mb-2">Continuous Deployment via Netlify</h4>
+                    <p className="text-xs text-blue-700 mb-2">This project features automatic deployment from GitHub to Netlify:</p>
+                    <ul className="text-xs text-blue-700 space-y-1 list-disc list-inside">
+                      <li>Connected to GitHub repository for continuous integration</li>
+                      <li>Automatic builds triggered on every push to main branch</li>
+                      <li>Production-ready deployment with custom domain support</li>
+                      <li>Built-in CDN and performance optimization</li>
+                    </ul>
                   </div>
                 </div>
               </div>
