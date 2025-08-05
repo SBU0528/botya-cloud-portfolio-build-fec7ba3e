@@ -170,6 +170,63 @@ const Education = () => {
           </h2>
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
+              <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up mt-12">
+  <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">Zen Paperless Delivery & Invoicing System</h3>
+  <p className="text-gray-700 mb-6">
+    A fully functional delivery and invoicing system designed for drivers to create delivery notes, capture signatures, and generate QR codes. Built with Supabase for backend and storage, React for frontend, and optimized for mobile-first delivery workflows. This project demonstrates full-stack integration and real-world logistics application.
+  </p>
+  <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
+    <div className="flex items-center gap-2">
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <a
+              href="https://zen-paperless-system.lovable.app/"
+              className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink size={18} />
+              View Live
+            </a>
+          </TooltipTrigger>
+          <TooltipContent><p>Opens in new tab</p></TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+        Live – Lovable App
+      </Badge>
+    </div>
+    {/* Optional GitHub Link */}
+    {/* You can uncomment this later when GitHub is linked */}
+    {/* <a
+      href="https://github.com/YOUR_USERNAME/zen-delivery"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
+    >
+      <Github size={18} />
+      View Code
+    </a> */}
+  </div>
+  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+    <div className="flex items-start gap-2">
+      <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
+      <div>
+        <h4 className="text-sm font-medium text-blue-900 mb-2">Supabase-Powered App</h4>
+        <p className="text-xs text-blue-700 mb-2">Key Features:</p>
+        <ul className="text-xs text-blue-700 space-y-1 list-disc list-inside">
+          <li>Email/password login with Supabase Auth</li>
+          <li>Digital signature capture with mobile support</li>
+          <li>QR code generation for delivery confirmation</li>
+          <li>Admin dashboard for delivery tracking</li>
+          <li>Fully responsive and near-production ready</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
               <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
               <p className="text-gray-700 mb-6">
                 A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using Netlify, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
