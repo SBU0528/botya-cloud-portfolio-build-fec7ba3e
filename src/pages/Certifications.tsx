@@ -17,6 +17,7 @@ import {
   Award,
 } from "lucide-react";
 
+// ✅ Correct interface with proper icon type
 interface Certification {
   title: string;
   issuer: string;
@@ -24,7 +25,7 @@ interface Certification {
   id: string;
   skills: string[];
   link: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
 const Certifications: React.FC = () => {
@@ -35,6 +36,7 @@ const Certifications: React.FC = () => {
     setOpenCertId(openCertId === id ? null : id);
   };
 
+  // ✅ Full working list of certifications
   const certifications: Certification[] = [
     {
       title: "CompTIA A+, Network+ & CCNA Routing and Switching",
@@ -146,7 +148,8 @@ const Certifications: React.FC = () => {
       icon: Award,
     },
     {
-      title: "Work Smarter, Not Harder: Time Management for Personal & Professional Productivity",
+      title:
+        "Work Smarter, Not Harder: Time Management for Personal & Professional Productivity",
       issuer: "University of California, Irvine",
       date: "May 2025",
       id: "514VSLW9RCJ9",
@@ -154,14 +157,42 @@ const Certifications: React.FC = () => {
       link: "https://www.coursera.org/account/accomplishments/certificate/514VSLW9RCJ9",
       icon: Award,
     },
+    {
+      title: "SFIA Infrastructure Engineer",
+      issuer: "Coursera",
+      date: "Aug 2025",
+      id: "9dD-XNUKRfmQ_lzVCjX5PQ",
+      skills: ["Infrastructure Engineering", "SFIA"],
+      link: "https://www.coursera.org/account/accomplishments/badge/9dD-XNUKRfmQ_lzVCjX5PQ?utm_source=ln",
+      icon: Award,
+    },
+    {
+      title: "Building Data Lakes on AWS",
+      issuer: "Amazon Web Services (AWS)",
+      date: "Aug 2025",
+      id: "0WWWSY3C23S7",
+      skills: ["Data Lakes", "AWS", "Cloud Storage"],
+      link: "https://coursera.org/verify/0WWWSY3C23S7",
+      icon: Cloud,
+    },
+    {
+      title: "Introduction to Software, Programming, and Databases",
+      issuer: "IBM",
+      date: "Aug 2025",
+      id: "HDLL62JMIFZG",
+      skills: ["Software Development", "Databases", "Programming"],
+      link: "https://coursera.org/verify/HDLL62JMIFZG",
+      icon: Code,
+    },
   ];
 
-  const filtered = certifications.filter((cert) =>
-    cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    cert.skills.some((skill) =>
-      skill.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+  const filtered = certifications.filter(
+    (cert) =>
+      cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      cert.skills.some((skill) =>
+        skill.toLowerCase().includes(searchTerm.toLowerCase())
+      )
   );
 
   return (
@@ -173,12 +204,10 @@ const Certifications: React.FC = () => {
             subtitle="Professional certifications and qualifications"
           />
 
-          {/* Search */}
+          {/* Search Input */}
           <div className="mb-12 max-w-md mx-auto">
             <div className="relative">
-              <Search
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5"
-              />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search certifications..."
@@ -189,7 +218,7 @@ const Certifications: React.FC = () => {
             </div>
           </div>
 
-          {/* Grid */}
+          {/* Certification Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((cert) => (
               <div
