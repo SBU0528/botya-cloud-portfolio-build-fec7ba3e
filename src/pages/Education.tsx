@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
@@ -38,11 +37,13 @@ const Education = () => {
   return (
     <Layout>
       <div className="pt-24 md:pt-28">
+        {/* Header Section */}
         <Section padding="lg">
           <PageHeader 
             title="Education" 
             subtitle="My academic journey and professional development in IT and cloud computing"
           />
+
           {/* Timeline Section */}
           <div className="px-4 md:px-10 max-w-full mx-auto py-12" ref={timelineRef}>
             <h2 className="text-3xl md:text-4xl font-bold font-montserrat text-navy mb-12 text-center">
@@ -74,6 +75,7 @@ const Education = () => {
                     </div>
                   </div>
                 </div>
+
                 {/* Item 2 */}
                 <div className="timeline-item opacity-0 md:flex md:justify-start md:pl-[52%] md:even:justify-end md:even:pr-[52%] md:even:pl-4">
                   <div className={cn(
@@ -97,6 +99,7 @@ const Education = () => {
                     </div>
                   </div>
                 </div>
+
                 {/* Item 3 */}
                 <div className="timeline-item opacity-0 md:flex md:justify-end md:pr-[52%] md:odd:justify-start md:odd:pl-[52%] md:odd:pr-4">
                   <div className={cn(
@@ -125,7 +128,7 @@ const Education = () => {
           </div>
         </Section>
 
-        {/* Professional Development Section */}
+        {/* Professional Development */}
         <Section background="gray" padding="lg">
           <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
             Professional Development
@@ -163,73 +166,18 @@ const Education = () => {
           </div>
         </Section>
 
-        {/* Projects Section with Netlify and GitHub links */}
+        {/* Projects Section */}
         <Section background="white" padding="lg">
           <h2 className="text-4xl md:text-5xl font-bold font-montserrat bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent text-center py-8 mb-12 drop-shadow-lg animate-fade-up">
             Projects
           </h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
-              <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up mt-12">
-  <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">Zen Paperless Delivery & Invoicing System</h3>
-  <p className="text-gray-700 mb-6">
-    A fully functional delivery and invoicing system designed for drivers to create delivery notes, capture signatures, and generate QR codes. Built with Supabase for backend and storage, React for frontend, and optimized for mobile-first delivery workflows. This project demonstrates full-stack integration and real-world logistics application.
-  </p>
-  <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
-    <div className="flex items-center gap-2">
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <a
-              href="https://zen-paperless-system.lovable.app/"
-              className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ExternalLink size={18} />
-              View Live
-            </a>
-          </TooltipTrigger>
-          <TooltipContent><p>Opens in new tab</p></TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
-      <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-        Live – Lovable App
-      </Badge>
-    </div>
-    {/* Optional GitHub Link */}
-    {/* You can uncomment this later when GitHub is linked */}
-    {/* <a
-      href="https://github.com/YOUR_USERNAME/zen-delivery"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
-    >
-      <Github size={18} />
-      View Code
-    </a> */}
-  </div>
-  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
-    <div className="flex items-start gap-2">
-      <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
-      <div>
-        <h4 className="text-sm font-medium text-blue-900 mb-2">Supabase-Powered App</h4>
-        <p className="text-xs text-blue-700 mb-2">Key Features:</p>
-        <ul className="text-xs text-blue-700 space-y-1 list-disc list-inside">
-          <li>Email/password login with Supabase Auth</li>
-          <li>Digital signature capture with mobile support</li>
-          <li>QR code generation for delivery confirmation</li>
-          <li>Admin dashboard for delivery tracking</li>
-          <li>Fully responsive and near-production ready</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+          <div className="max-w-4xl mx-auto space-y-12">
 
-              <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My First Project</h3>
+            {/* First Project - Portfolio */}
+            <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
+              <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">My Portfolio Website</h3>
               <p className="text-gray-700 mb-6">
-                A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using Netlify, this project demonstrates my skills in web development, responsive design, and cloud deployment strategies.
+                A comprehensive cloud portfolio website showcasing my journey in cloud computing and IT. Built with modern web technologies and deployed using Netlify, demonstrating skills in web development, responsive design, and cloud deployment strategies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
                 <div className="flex items-center gap-2">
@@ -237,7 +185,7 @@ const Education = () => {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <a
-                          href="https://flourishing-pastelito-83f9ed.netlify.app/"
+                          href="https://sbotya.netlify.app/"
                           className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -250,7 +198,7 @@ const Education = () => {
                     </Tooltip>
                   </TooltipProvider>
                   <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
-                    Live – Deployed via Netlify
+                    Live – Netlify
                   </Badge>
                 </div>
                 <a
@@ -263,23 +211,64 @@ const Education = () => {
                   View Code
                 </a>
               </div>
-              {/* Netlify Deployment Information */}
+            </div>
+
+            {/* Second Project - Zen Paperless System */}
+            <div className="bg-white rounded-lg shadow-md p-8 border border-gray-200 animate-fade-up">
+              <h3 className="text-2xl font-bold font-montserrat text-navy mb-4">Zen Paperless Delivery & Invoicing System</h3>
+              <p className="text-gray-700 mb-6">
+                A fully functional delivery and invoicing system designed for drivers to create delivery notes, capture signatures, and generate QR codes. Built with Supabase for backend and storage, React for frontend, and optimized for mobile-first delivery workflows. Demonstrates full-stack integration and real-world logistics application.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-start mb-6">
+                <div className="flex items-center gap-2">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href="https://zen-paperless-system.netlify.app/"
+                          className="inline-flex items-center justify-center px-6 py-3 bg-skyblue text-white font-medium rounded-lg hover:bg-navy transition-colors duration-200 gap-2"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink size={18} />
+                          View Live
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent><p>Opens in new tab</p></TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                    Live – Netlify
+                  </Badge>
+                </div>
+                <a
+                  href="https://github.com/SBU0528/zen-paperless-system"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-skyblue text-skyblue font-medium rounded-lg hover:bg-skyblue hover:text-white transition-colors duration-200 gap-2"
+                >
+                  <Github size={18} />
+                  View Code
+                </a>
+              </div>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
                 <div className="flex items-start gap-2">
                   <Info size={16} className="text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h4 className="text-sm font-medium text-blue-900 mb-2">Continuous Deployment via Netlify</h4>
-                    <p className="text-xs text-blue-700 mb-2">This project features automatic deployment from GitHub to Netlify:</p>
+                    <h4 className="text-sm font-medium text-blue-900 mb-2">Supabase-Powered App</h4>
+                    <p className="text-xs text-blue-700 mb-2">Key Features:</p>
                     <ul className="text-xs text-blue-700 space-y-1 list-disc list-inside">
-                      <li>Connected to GitHub repository for continuous integration</li>
-                      <li>Automatic builds triggered on every push to main branch</li>
-                      <li>Production-ready deployment with custom domain support</li>
-                      <li>Built-in CDN and performance optimization</li>
+                      <li>Email/password login with Supabase Auth</li>
+                      <li>Digital signature capture with mobile support</li>
+                      <li>QR code generation for delivery confirmation</li>
+                      <li>Admin dashboard for delivery tracking</li>
+                      <li>Fully responsive and near-production ready</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </Section>
       </div>
@@ -288,3 +277,4 @@ const Education = () => {
 };
 
 export default Education;
+
