@@ -17,7 +17,7 @@ import {
   Award,
 } from "lucide-react";
 
-// ✅ Correct interface with proper icon type
+// ✅ Interface
 interface Certification {
   title: string;
   issuer: string;
@@ -28,6 +28,41 @@ interface Certification {
   icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
+// ✅ Image filenames (must exist in public/Certificates)
+const certificateImages = [
+  "CERTIFICATE~0WWWSY3C23S7.jpeg",
+  "CERTIFICATE~4FLIYFX5KSN5.jpeg",
+  "CERTIFICATE~5C55GRQPEBVI.jpeg",
+  "CERTIFICATE~CDI63MS6WCY6.jpeg",
+  "CERTIFICATE~HCFGE4BL7FQI.jpeg",
+  "CERTIFICATE~HDLL62JMIFZG.jpeg",
+  "CERTIFICATE~KELY2TCWXD1Y.jpeg",
+  "CERTIFICATE~N8SY1TUKJWCU.jpeg",
+  "CERTIFICATE~NFHAM0TBZEFR.jpeg",
+  "CERTIFICATE~NNTM0DJMU6Y9.jpeg",
+  "CERTIFICATE~QH200NTBBIPJ.jpeg",
+  "Certificate~OC2591.jpg",
+  "Coursera NFHAM0TBZEFR.jpg",
+  "Coursera-0AY0X7JIOQ83.jpg",
+  "Coursera-1LRZWR79304I.jpg",
+  "Coursera-4FLIYFX5KSN5.jpg",
+  "Coursera-5C55GRQPEBVI.jpg",
+  "Coursera-CDI63MS6WCY6.jpg",
+  "Coursera-GCRBLA42Y93U.jpg",
+  "Coursera-HCFGE4BL7FQI.jpg",
+  "Coursera-N8SY1TUKJWCU.jpg",
+  "Coursera-NNTM0DJMU6Y9.jpg",
+  "Coursera-QH200NTBBIPJ.jpg",
+  "Coursera 72MIK4N4HQ6H-1.png",
+  "Coursera APJ8V6YHFMDJ-1.png",
+  "Coursera CY6HQJW520UD-1.png",
+  "Coursera GQMNQRVRT1GR-1.png",
+  "Coursera MNBRXP9YG2VM-1.png",
+  "Coursera QLS4XCMXPRTM-1.png",
+  "Coursera Y8VTEE5VILQ7-1.png",
+  "Coursera YWRXVNNMICFJ-1.png",
+];
+
 const Certifications: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [openCertId, setOpenCertId] = useState<string | null>(null);
@@ -36,7 +71,7 @@ const Certifications: React.FC = () => {
     setOpenCertId(openCertId === id ? null : id);
   };
 
-  // ✅ Full working list of certifications
+  // ✅ Full working metadata list
   const certifications: Certification[] = [
     {
       title: "CompTIA A+, Network+ & CCNA Routing and Switching",
@@ -253,9 +288,9 @@ const Certifications: React.FC = () => {
                     </button>
                     {openCertId === cert.id && (
                       <img
-                        src="/lovable-uploads/Certificate.jpg"
+                        src="/Certificates/Certificate~OC2591.jpg"
                         alt="Optimi College Certificate"
-                        className="mt-4 w-full rounded"
+                        className="mt-4 w-full rounded shadow"
                       />
                     )}
                   </>
@@ -271,6 +306,27 @@ const Certifications: React.FC = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Floating Image Gallery */}
+          <div className="mt-20">
+            <h2 className="text-2xl font-semibold mb-6 text-center">
+              Certificate Gallery
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {certificateImages.map((filename) => (
+                <div
+                  key={filename}
+                  className="relative group overflow-hidden rounded-lg shadow bg-white dark:bg-gray-800"
+                >
+                  <img
+                    src={`/Certificates/${filename}`}
+                    alt={filename}
+                    className="w-full h-48 object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </Section>
       </div>
