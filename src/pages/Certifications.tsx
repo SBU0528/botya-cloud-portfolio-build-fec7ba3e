@@ -1,35 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import {
-  ExternalLink,
-  Search,
-  Cloud,
-  Cpu,
-  Code,
-  Headphones,
-  HardDrive,
-  Server,
-  MessageCircle,
-  Mail,
-  Award,
-} from "lucide-react";
 
-// ✅ Interface
-interface Certification {
-  title: string;
-  issuer: string;
-  date: string;
-  id: string;
-  skills: string[];
-  link: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
-}
-
-// ✅ Image filenames (must exist in public/Certificates)
-const certificateImages = [
+// ✅ List of all certificates (make sure they’re in /public/Certificates/)
+const certificates = [
   "CERTIFICATE~0WWWSY3C23S7.jpeg",
   "CERTIFICATE~4FLIYFX5KSN5.jpeg",
   "CERTIFICATE~5C55GRQPEBVI.jpeg",
@@ -41,7 +17,7 @@ const certificateImages = [
   "CERTIFICATE~NFHAM0TBZEFR.jpeg",
   "CERTIFICATE~NNTM0DJMU6Y9.jpeg",
   "CERTIFICATE~QH200NTBBIPJ.jpeg",
-  "Certificate~OC2591.jpg",
+  "Certificate~OC2591.jpg", // Optimi College
   "Coursera NFHAM0TBZEFR.jpg",
   "Coursera-0AY0X7JIOQ83.jpg",
   "Coursera-1LRZWR79304I.jpg",
@@ -64,273 +40,42 @@ const certificateImages = [
 ];
 
 const Certifications: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [openCertId, setOpenCertId] = useState<string | null>(null);
-
-  const toggleCertImage = (id: string) => {
-    setOpenCertId(openCertId === id ? null : id);
-  };
-
-  // ✅ Full working metadata list
-  const certifications: Certification[] = [
-    {
-      title: "CompTIA A+, Network+ & CCNA Routing and Switching",
-      issuer: "Optimi College",
-      date: "August 2024",
-      id: "OC2591",
-      skills: ["CompTIA A+", "CompTIA Network+", "CCNA Routing and Switching"],
-      link: "#",
-      icon: Server,
-    },
-    {
-      title: "Generative AI: Introduction and Applications",
-      issuer: "IBM",
-      date: "May 2025",
-      id: "5C55GRQPEBVI",
-      skills: ["Generative AI", "Artificial Intelligence"],
-      link: "https://coursera.org/verify/5C55GRQPEBVI",
-      icon: Cpu,
-    },
-    {
-      title: "Generative AI: Prompt Engineering Basics",
-      issuer: "IBM",
-      date: "May 2025",
-      id: "N8SY1TUKJWCU",
-      skills: ["Prompt Engineering", "Generative AI"],
-      link: "https://coursera.org/verify/N8SY1TUKJWCU",
-      icon: Code,
-    },
-    {
-      title: "Active Listening: Enhancing Communication Skills",
-      issuer: "Coursera Instructor Network",
-      date: "Mar 2025",
-      id: "HCFGE4BL7FQI",
-      skills: ["Cross-Cultural Communication Skills"],
-      link: "https://coursera.org/verify/HCFGE4BL7FQI",
-      icon: Headphones,
-    },
-    {
-      title: "Cloud Computing Foundations",
-      issuer: "Duke University",
-      date: "Mar 2025",
-      id: "QH200NTBBIPJ",
-      skills: ["Cloud Infrastructure"],
-      link: "https://coursera.org/verify/QH200NTBBIPJ",
-      icon: Cloud,
-    },
-    {
-      title: "Introduction to Cloud Computing",
-      issuer: "United Latino Students Association",
-      date: "Mar 2025",
-      id: "4FLIYFX5KSN5",
-      skills: ["Cloud Computing", "Cloud Infrastructure"],
-      link: "https://coursera.org/verify/4FLIYFX5KSN5",
-      icon: Cloud,
-    },
-    {
-      title: "Introduction to Hardware and Operating Systems",
-      issuer: "IBM",
-      date: "Mar 2025",
-      id: "0AY0X7JIOQ83",
-      skills: [
-        "Computer Hardware Troubleshooting",
-        "Hardware Installation",
-        "Networking",
-        "Operating Systems",
-      ],
-      link: "https://coursera.org/verify/0AY0X7JIOQ83",
-      icon: HardDrive,
-    },
-    {
-      title: "Introduction to Networking and Cloud Computing",
-      issuer: "Microsoft",
-      date: "Mar 2025",
-      id: "NFHAM0TBZEFR",
-      skills: ["Cloud Computing", "Networking and Cloud Computing"],
-      link: "https://coursera.org/verify/NFHAM0TBZEFR",
-      icon: Server,
-    },
-    {
-      title: "Verbal Communications and Presentation Skills",
-      issuer: "Starweaver",
-      date: "Mar 2025",
-      id: "NNTM0DJMU6Y9",
-      skills: [
-        "Oral Communication",
-        "Speech",
-        "Verbal Behavior",
-        "Communication Training",
-      ],
-      link: "https://coursera.org/verify/NNTM0DJMU6Y9",
-      icon: MessageCircle,
-    },
-    {
-      title: "Write Professional Emails in English",
-      issuer: "Georgia Institute of Technology",
-      date: "Mar 2025",
-      id: "CDI63MS6WCY6",
-      skills: ["Email Communications", "Professional Writing"],
-      link: "https://coursera.org/verify/CDI63MS6WCY6",
-      icon: Mail,
-    },
-    {
-      title: "Introduction to Microsoft Azure Cloud Services",
-      issuer: "Microsoft",
-      date: "May 2025",
-      id: "KELY2TCWXD1Y",
-      skills: ["Microsoft Azure", "Cloud Services"],
-      link: "https://coursera.org/verify/KELY2TCWXD1Y",
-      icon: Award,
-    },
-    {
-      title:
-        "Work Smarter, Not Harder: Time Management for Personal & Professional Productivity",
-      issuer: "University of California, Irvine",
-      date: "May 2025",
-      id: "514VSLW9RCJ9",
-      skills: ["Time Management", "Productivity", "Workplace Skills"],
-      link: "https://www.coursera.org/account/accomplishments/certificate/514VSLW9RCJ9",
-      icon: Award,
-    },
-    {
-      title: "SFIA Infrastructure Engineer",
-      issuer: "Coursera",
-      date: "Aug 2025",
-      id: "9dD-XNUKRfmQ_lzVCjX5PQ",
-      skills: ["Infrastructure Engineering", "SFIA"],
-      link: "https://www.coursera.org/account/accomplishments/badge/9dD-XNUKRfmQ_lzVCjX5PQ?utm_source=ln",
-      icon: Award,
-    },
-    {
-      title: "Building Data Lakes on AWS",
-      issuer: "Amazon Web Services (AWS)",
-      date: "Aug 2025",
-      id: "0WWWSY3C23S7",
-      skills: ["Data Lakes", "AWS", "Cloud Storage"],
-      link: "https://coursera.org/verify/0WWWSY3C23S7",
-      icon: Cloud,
-    },
-    {
-      title: "Introduction to Software, Programming, and Databases",
-      issuer: "IBM",
-      date: "Aug 2025",
-      id: "HDLL62JMIFZG",
-      skills: ["Software Development", "Databases", "Programming"],
-      link: "https://coursera.org/verify/HDLL62JMIFZG",
-      icon: Code,
-    },
-  ];
-
-  const filtered = certifications.filter(
-    (cert) =>
-      cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cert.issuer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      cert.skills.some((skill) =>
-        skill.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-  );
-
   return (
     <Layout>
       <div className="pt-24 md:pt-28 dark:text-gray-100">
         <Section padding="lg">
           <PageHeader
             title="Certifications"
-            subtitle="Professional certifications and qualifications"
+            subtitle="All professional certificates displayed below"
           />
 
-          {/* Search Input */}
-          <div className="mb-12 max-w-md mx-auto">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search certifications..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:bg-gray-800 dark:border-gray-600"
-              />
-            </div>
-          </div>
-
-          {/* Certification Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((cert) => (
+          {/* Floating Certificate Gallery */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+            {certificates.map((file) => (
               <div
-                key={cert.id}
-                className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow hover:shadow-lg transition"
+                key={file}
+                className="relative group overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
               >
-                <div className="flex items-center mb-4">
-                  <cert.icon className="text-sky-400 mr-3 w-6 h-6" />
-                  <h3 className="font-semibold text-navy dark:text-gray-100">
-                    {cert.title}
-                  </h3>
+                <img
+                  src={`/Certificates/${file}`}
+                  alt={file}
+                  className="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-sm px-2 text-center">
+                  {file.replace(/^(CERTIFICATE~|Coursera[- ]|Certificate~)/, "")
+                      .replace(/\.(jpg|jpeg|png)$/i, "")}
                 </div>
-                <p className="text-gray-600 dark:text-gray-400">
-                  <strong>Issuer:</strong> {cert.issuer}
-                </p>
-                <p className="text-gray-600 dark:text-gray-400">
-                  <strong>Date:</strong> {cert.date}
-                </p>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  <strong>Credential ID:</strong> {cert.id}
-                </p>
-                {cert.id === "OC2591" ? (
-                  <>
-                    <button
-                      onClick={() => toggleCertImage(cert.id)}
-                      className="inline-flex items-center text-sky-400 hover:text-navy"
-                    >
-                      {openCertId === cert.id
-                        ? "Hide Certificate"
-                        : "Show Credential"}{" "}
-                      <ExternalLink className="ml-1 w-4 h-4" />
-                    </button>
-                    {openCertId === cert.id && (
-                      <img
-                        src="/Certificates/Certificate~OC2591.jpg"
-                        alt="Optimi College Certificate"
-                        className="mt-4 w-full rounded shadow"
-                      />
-                    )}
-                  </>
-                ) : (
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sky-400 hover:text-navy"
-                  >
-                    Show Credential <ExternalLink className="ml-1 w-4 h-4" />
-                  </a>
-                )}
               </div>
             ))}
-          </div>
-
-          {/* Floating Image Gallery */}
-          <div className="mt-20">
-            <h2 className="text-2xl font-semibold mb-6 text-center">
-              Certificate Gallery
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {certificateImages.map((filename) => (
-                <div
-                  key={filename}
-                  className="relative group overflow-hidden rounded-lg shadow bg-white dark:bg-gray-800"
-                >
-                  <img
-                    src={`/Certificates/${filename}`}
-                    alt={filename}
-                    className="w-full h-48 object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
           </div>
         </Section>
       </div>
     </Layout>
+  );
+};
+
+export default Certifications;
+
   );
 };
 
