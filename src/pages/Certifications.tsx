@@ -4,8 +4,8 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 
-// ✅ List of all certificates (make sure they’re in /public/Certificates/)
-const certificates = [
+// ✅ List of all certificate filenames in /public/Certificates/
+const certificateFiles = [
   "CERTIFICATE~0WWWSY3C23S7.jpeg",
   "CERTIFICATE~4FLIYFX5KSN5.jpeg",
   "CERTIFICATE~5C55GRQPEBVI.jpeg",
@@ -39,32 +39,46 @@ const certificates = [
   "Coursera YWRXVNNMICFJ-1.png",
 ];
 
+// ✅ Split array into chunks of 4
+const chunkArray = (arr: string[], size: number) =>
+  arr.reduce<string[][]>((acc, _, i) => {
+    if (i % size === 0) acc.push(arr.slice(i, i + size));
+    return acc;
+  }, []);
+
 const Certifications: React.FC = () => {
+  const rows = chunkArray(certificateFiles, 4);
+
   return (
     <Layout>
       <div className="pt-24 md:pt-28 dark:text-gray-100">
         <Section padding="lg">
           <PageHeader
             title="Certifications"
-            subtitle="All professional certificates displayed below"
+            subtitle="Floating certificate gallery"
           />
 
-          {/* Floating Certificate Gallery */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
-            {certificates.map((file) => (
+          <div className="space-y-12 mt-12">
+            {rows.map((row, rowIndex) => (
               <div
-                key={file}
-                className="relative group overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
+                key={rowIndex}
+                className={`flex space-x-6 animate-marquee ${
+                  rowIndex % 2 === 0 ? "animate-marquee" : "animate-marquee-reverse"
+                }`}
               >
-                <img
-                  src={`/Certificates/${file}`}
-                  alt={file}
-                  className="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-sm px-2 text-center">
-                  {file.replace(/^(CERTIFICATE~|Coursera[- ]|Certificate~)/, "")
-                      .replace(/\.(jpg|jpeg|png)$/i, "")}
-                </div>
+                {row.map((file, idx) => (
+                  <div
+                    key={idx}
+                    className="relative group flex-shrink-0 w-64 h-40 overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
+                  >
+                    <img
+                      src={`/Certificates/${file}`}
+                      alt={file}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
@@ -76,7 +90,3 @@ const Certifications: React.FC = () => {
 
 export default Certifications;
 
-  );
-};
-
-export default Certifications;
