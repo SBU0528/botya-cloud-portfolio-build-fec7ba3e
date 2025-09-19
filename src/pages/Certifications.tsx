@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 
-// ✅ All certificate files directly inside /public (no /Certificates subfolder)
+// Certificate image files directly inside /public
 const certificateFiles = [
   "CERTIFICATE~0WWWSY3C23S7.jpeg",
   "CERTIFICATE~4FLIYFX5KSN5.jpeg",
@@ -39,15 +39,19 @@ const certificateFiles = [
   "Coursera YWRXVNNMICFJ-1.png",
 ];
 
-// ✅ Split into rows of 4 certificates
-const chunkArray = (arr: string[], size: number) =>
-  arr.reduce<string[][]>((acc, _, i) => {
-    if (i % size === 0) acc.push(arr.slice(i, i + size));
-    return acc;
-  }, []);
+// Utility: duplicate gallery for infinite scroll illusion
+const getLoopedGallery = (files: string[], loops = 2) => {
+  const arr: string[] = [];
+  for (let i = 0; i < loops; i++) arr.push(...files);
+  return arr;
+};
 
 const Certifications: React.FC = () => {
-  const rows = chunkArray(certificateFiles, 4);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  // Infinite horizontal auto-scroll + user scroll
+  // Pause animation on hover
+  // - Tailwind custom classes below
 
   return (
     <Layout>
@@ -58,32 +62,58 @@ const Certifications: React.FC = () => {
             subtitle="Floating certificate gallery"
           />
 
-          {/* Floating Gallery */}
-          <div className="space-y-12 mt-12">
-            {rows.map((row, rowIndex) => (
+          <div className="mt-12">
+            <div className="relative">
               <div
-                key={rowIndex}
-                className={`flex space-x-6 animate-marquee ${
-                  rowIndex % 2 === 0 ? "animate-marquee" : "animate-marquee-reverse"
-                }`}
+                ref={marqueeRef}
+                className="group overflow-x-auto whitespace-nowrap scroll-smooth"
+                style={{ scrollbarWidth: "thin" }}
               >
-                {row.map((file, idx) => (
-                  <div
-                    key={idx}
-                    className="relative flex-shrink-0 w-72 h-48 overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
-                  >
-                    {/* <--- updated path! */}
-                    <img
-                      src={`/${file}`}
-                      alt={file}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+                {/* Marquee animation */}
+                <div
+                  className="flex items-center gap-8 animate-marquee group-hover:[animation-play-state:paused]"
+                  style={{
+                    animation: "marquee 45s linear infinite",
+                    // Pause animation on hover
+                  }}
+                >
+                  {getLoopedGallery(certificateFiles, 2).map((file, idx) => (
+                    <div
+                      key={idx}
+                      className="relative flex-shrink-0 w-72 h-48 rounded-xl shadow-lg bg-white dark:bg-gray-800
+                        transition-transform duration-300 hover:scale-105 hover:rotate-2 hover:shadow-2xl
+                        cursor-pointer"
+                    >
+                      <img
+                        src={`/${file}`}
+                        alt={file}
+                        className="w-full h-full object-contain rounded-xl"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+              {/* Manual scroll indicator */}
+              <div className="absolute bottom-2 right-2 text-xs text-gray-500 dark:text-gray-400 z-10 bg-white/70 dark:bg-gray-900/70 px-2 py-1 rounded">
+                Scroll sideways &rarr;
+              </div>
+            </div>
           </div>
+
+          {/* Custom marquee keyframes */}
+          <style jsx>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              animation: marquee 45s linear infinite;
+            }
+            .group:hover .animate-marquee {
+              animation-play-state: paused;
+            }
+          `}</style>
         </Section>
       </div>
     </Layout>
