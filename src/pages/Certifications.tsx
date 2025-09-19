@@ -72,8 +72,9 @@ const Certifications: React.FC = () => {
                     key={idx}
                     className="relative flex-shrink-0 w-72 h-48 overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
                   >
+                    {/* <--- updated path! */}
                     <img
-                      src={`/${file}`} {/* <--- updated path! */}
+                      src={`/${file}`}
                       alt={file}
                       className="w-full h-full object-contain"
                       loading="lazy"
