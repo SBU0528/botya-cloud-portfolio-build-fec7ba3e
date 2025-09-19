@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 
-// ✅ All certificate files inside /public/Certificates
+// ✅ All certificate files directly inside /public (no /Certificates subfolder)
 const certificateFiles = [
   "CERTIFICATE~0WWWSY3C23S7.jpeg",
   "CERTIFICATE~4FLIYFX5KSN5.jpeg",
@@ -73,7 +73,7 @@ const Certifications: React.FC = () => {
                     className="relative flex-shrink-0 w-72 h-48 overflow-hidden rounded-lg shadow-lg bg-white dark:bg-gray-800"
                   >
                     <img
-                      src={`/Certificates/${file}`}
+                      src={`/${file}`} {/* <--- updated path! */}
                       alt={file}
                       className="w-full h-full object-contain"
                       loading="lazy"
