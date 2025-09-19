@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 
-// ✅ All certificate files inside /public
+// ✅ All certificate files inside /public/Certificates.zip
 const certificateFiles = [
   "CERTIFICATE~0WWWSY3C23S7.jpeg",
   "CERTIFICATE~4FLIYFX5KSN5.jpeg",
