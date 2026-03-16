@@ -136,7 +136,7 @@ const certifications: Certification[] = [
     link: "https://coursera.org/verify/KELY2TCWXD1Y",
   },
   {
-    title: "Work Smarter, Not Harder: Time Management for Personal & Professional Productivity",
+    title: "Work Smarter, Not Harder: Time Management",
     issuer: "University of California, Irvine",
     date: "May 2025",
     id: "514VSLW9RCJ9",
@@ -165,6 +165,70 @@ const certifications: Certification[] = [
   },
 ];
 
+const CertCard: React.FC<{ cert: Certification; onClick: () => void }> = ({ cert, onClick }) => (
+  <div className="flex-shrink-0 w-72 md:w-80 group cursor-pointer" onClick={onClick}>
+    <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-md group-hover:shadow-2xl group-hover:-translate-y-3 transition-all duration-300">
+      {cert.image ? (
+        <div className="overflow-hidden">
+          <img
+            src={cert.image}
+            alt={cert.title}
+            className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+          <span className="text-5xl font-bold text-primary/30 select-none">
+            {cert.issuer.charAt(0)}
+          </span>
+        </div>
+      )}
+      <div className="p-4">
+        <h3 className="font-semibold text-card-foreground text-sm leading-snug mb-1.5 line-clamp-2">
+          {cert.title}
+        </h3>
+        <p className="text-xs text-muted-foreground">{cert.issuer}</p>
+        <p className="text-xs text-muted-foreground mb-2">{cert.date}</p>
+        <a
+          href={cert.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Verify <ExternalLink className="w-3 h-3" />
+        </a>
+      </div>
+    </div>
+  </div>
+);
+
+const MarqueeRow: React.FC<{ certs: Certification[]; direction?: "left" | "right"; onSelect: (img: string) => void }> = ({
+  certs,
+  direction = "left",
+  onSelect,
+}) => {
+  const animationClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
+
+  return (
+    <div className="overflow-hidden py-4 group/marquee">
+      <div
+        className={`flex gap-6 w-max ${animationClass} group-hover/marquee:[animation-play-state:paused]`}
+      >
+        {/* Duplicate items for seamless loop */}
+        {[...certs, ...certs].map((cert, i) => (
+          <CertCard
+            key={`${cert.id}-${i}`}
+            cert={cert}
+            onClick={() => cert.image && onSelect(cert.image)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Certifications: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -174,6 +238,13 @@ const Certifications: React.FC = () => {
       cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       cert.issuer.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Split into rows for marquee
+  const half = Math.ceil(filtered.length / 2);
+  const row1 = filtered.slice(0, half);
+  const row2 = filtered.slice(half);
+
+  const isSearching = searchTerm.length > 0;
 
   return (
     <Layout>
@@ -185,7 +256,7 @@ const Certifications: React.FC = () => {
           />
 
           {/* Search */}
-          <div className="mb-12 max-w-md mx-auto">
+          <div className="mb-8 max-w-md mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
               <input
@@ -198,54 +269,21 @@ const Certifications: React.FC = () => {
             </div>
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filtered.map((cert, index) => (
-              <div
-                key={cert.id}
-                className="group bg-card border border-border rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                {/* Certificate Image */}
-                {cert.image ? (
-                  <div
-                    className="cursor-pointer overflow-hidden"
-                    onClick={() => setSelectedImage(cert.image!)}
-                  >
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
-                ) : (
-                  <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <span className="text-5xl font-bold text-primary/30 select-none">
-                      {cert.issuer.charAt(0)}
-                    </span>
-                  </div>
-                )}
-
-                {/* Info */}
-                <div className="p-5">
-                  <h3 className="font-semibold text-card-foreground text-sm leading-snug mb-2 line-clamp-2">
-                    {cert.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mb-1">{cert.issuer}</p>
-                  <p className="text-xs text-muted-foreground mb-3">{cert.date}</p>
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
-                  >
-                    Verify Credential <ExternalLink className="w-3 h-3" />
-                  </a>
+          {/* Marquee or static grid when searching */}
+          {isSearching ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {filtered.map((cert) => (
+                <div key={cert.id} className="flex justify-center">
+                  <CertCard cert={cert} onClick={() => cert.image && setSelectedImage(cert.image)} />
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-2">
+              <MarqueeRow certs={row1} direction="left" onSelect={setSelectedImage} />
+              <MarqueeRow certs={row2} direction="right" onSelect={setSelectedImage} />
+            </div>
+          )}
         </Section>
       </div>
 
