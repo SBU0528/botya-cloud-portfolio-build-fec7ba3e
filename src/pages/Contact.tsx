@@ -162,7 +162,7 @@ const Contact = () => {
             <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <div className="bg-white p-4 rounded-lg shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d18.5975!3d-33.9872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc49e1e1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sOld%20Crossroads%2C%20Nyanga%2C%20Cape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Old+Crossroads,Nyanga,Cape+Town,South+Africa&zoom=15"
                   className="w-full h-64 md:h-96 rounded-lg border-0"
                   style={{ border: 0 }}
                   allowFullScreen
