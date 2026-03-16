@@ -168,7 +168,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Sibusiso Botya Location - 28 Charles Hoffe, Van Riebeeckstrand, Melkbosstrand, Cape Town"
+                  title="Sibusiso Botya Location - 3739 Geya Crescent, Old Crossroads, Nyanga, Cape Town"
                 />
               </div>
             </div>

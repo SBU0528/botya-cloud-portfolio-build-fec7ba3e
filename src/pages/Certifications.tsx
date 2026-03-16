@@ -25,7 +25,7 @@ interface Certification {
   id: string;
   skills: string[];
   link: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: React.ComponentType<any>;
 }
 
 const Certifications: React.FC = () => {
