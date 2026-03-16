@@ -138,14 +138,14 @@ const Contact = () => {
                 <ContactInfo icon={<Github />} label="GitHub" href="https://github.com/SBU0528">
                   github.com/SBU0528
                 </ContactInfo>
-                <ContactInfo icon={<Phone />} label="Phone" href="tel:+27766217977">
-                  +27 76 621 7977
+                <ContactInfo icon={<Phone />} label="Phone" href="tel:+27744717519">
+                  074 471 7519
                 </ContactInfo>
                 <div className="flex items-start">
                   <div className="bg-skyblue p-3 rounded-full mr-4"><MapPin className="h-6 w-6 text-white"/></div>
                   <div>
                     <h4 className="font-medium text-lg mb-1">Location</h4>
-                    <p className="text-gray-300">28 Charles Hoffe, Van Riebeeckstrand<br />Melkbosstrand, Cape Town<br />Western Cape, South Africa</p>
+                    <p className="text-gray-300">3739 Geya Crescent<br />Old Crossroads, Nyanga<br />Cape Town, South Africa</p>
                   </div>
                 </div>
               </div>
