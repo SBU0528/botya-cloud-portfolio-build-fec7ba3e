@@ -5,19 +5,21 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   children: ReactNode;
   className?: string;
-  background?: "white" | "gray";
+  background?: "default" | "alt" | "white" | "gray";
   padding?: "sm" | "md" | "lg" | "xl" | "none";
 }
 
 const Section = ({ 
   children, 
   className, 
-  background = "white",
+  background = "default",
   padding = "lg" 
 }: SectionProps) => {
-  const bgColors = {
-    white: "bg-white dark:bg-gray-900",
-    gray: "bg-softgray dark:bg-gray-800"
+  const bgColors: Record<string, string> = {
+    default: "",
+    alt: "bg-secondary/30",
+    white: "",
+    gray: "bg-secondary/30",
   };
   
   const paddingClasses = {
