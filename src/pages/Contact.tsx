@@ -138,14 +138,14 @@ const Contact = () => {
                 <ContactInfo icon={<Github />} label="GitHub" href="https://github.com/SBU0528">
                   github.com/SBU0528
                 </ContactInfo>
-                <ContactInfo icon={<Phone />} label="Phone" href="tel:+27766217977">
-                  +27 76 621 7977
+                <ContactInfo icon={<Phone />} label="Phone" href="tel:+27744717519">
+                  074 471 7519
                 </ContactInfo>
                 <div className="flex items-start">
                   <div className="bg-skyblue p-3 rounded-full mr-4"><MapPin className="h-6 w-6 text-white"/></div>
                   <div>
                     <h4 className="font-medium text-lg mb-1">Location</h4>
-                    <p className="text-gray-300">28 Charles Hoffe, Van Riebeeckstrand<br />Melkbosstrand, Cape Town<br />Western Cape, South Africa</p>
+                    <p className="text-gray-300">3739 Geya Crescent<br />Old Crossroads, Nyanga<br />Cape Town, South Africa</p>
                   </div>
                 </div>
               </div>
@@ -162,13 +162,13 @@ const Contact = () => {
             <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
               <div className="bg-white p-4 rounded-lg shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.7!2d18.2573!3d-33.7321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c8c8c8c8c8c%3A0x8c8c8c8c8c8c8c8c!2s28%20Charles%20Hoffe%20St%2C%20Van%20Riebeeckstrand%2C%20Melkbosstrand%2C%207441%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1635959999999!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d18.5975!3d-33.9872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc49e1e1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sOld%20Crossroads%2C%20Nyanga%2C%20Cape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
                   className="w-full h-64 md:h-96 rounded-lg border-0"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Sibusiso Botya Location - 28 Charles Hoffe, Van Riebeeckstrand, Melkbosstrand, Cape Town"
+                  title="Sibusiso Botya Location - 3739 Geya Crescent, Old Crossroads, Nyanga, Cape Town"
                 />
               </div>
             </div>
