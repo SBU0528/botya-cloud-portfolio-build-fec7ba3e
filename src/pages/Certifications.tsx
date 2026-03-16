@@ -166,35 +166,37 @@ const certifications: Certification[] = [
 ];
 
 const CertCard: React.FC<{ cert: Certification; onClick: () => void }> = ({ cert, onClick }) => (
-  <div className="flex-shrink-0 w-72 md:w-80 group cursor-pointer" onClick={onClick}>
-    <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-md group-hover:shadow-2xl group-hover:-translate-y-3 transition-all duration-300">
+  <div
+    className="flex-shrink-0 w-[calc(20%-1.2rem)] min-w-[220px] cursor-pointer group/card"
+    onClick={onClick}
+  >
+    <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.02] transition-all duration-300">
       {cert.image ? (
         <div className="overflow-hidden">
           <img
             src={cert.image}
             alt={cert.title}
-            className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
+            className="w-full h-44 object-cover object-top group-hover/card:scale-105 transition-transform duration-500"
           />
         </div>
       ) : (
-        <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-          <span className="text-5xl font-bold text-primary/30 select-none">
+        <div className="h-44 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+          <span className="text-4xl font-bold text-primary/30 select-none">
             {cert.issuer.charAt(0)}
           </span>
         </div>
       )}
-      <div className="p-4">
-        <h3 className="font-semibold text-card-foreground text-sm leading-snug mb-1.5 line-clamp-2">
+      <div className="p-3">
+        <h3 className="font-semibold text-card-foreground text-xs leading-snug mb-1 line-clamp-2">
           {cert.title}
         </h3>
-        <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-        <p className="text-xs text-muted-foreground mb-2">{cert.date}</p>
+        <p className="text-[11px] text-muted-foreground">{cert.issuer}</p>
+        <p className="text-[11px] text-muted-foreground mb-1.5">{cert.date}</p>
         <a
           href={cert.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+          className="inline-flex items-center gap-1 text-[11px] font-medium text-primary hover:text-primary/80 transition-colors"
           onClick={(e) => e.stopPropagation()}
         >
           Verify <ExternalLink className="w-3 h-3" />
@@ -204,19 +206,16 @@ const CertCard: React.FC<{ cert: Certification; onClick: () => void }> = ({ cert
   </div>
 );
 
-const MarqueeRow: React.FC<{ certs: Certification[]; direction?: "left" | "right"; onSelect: (img: string) => void }> = ({
-  certs,
-  direction = "left",
-  onSelect,
-}) => {
+const MarqueeRow: React.FC<{
+  certs: Certification[];
+  direction?: "left" | "right";
+  onSelect: (img: string) => void;
+}> = ({ certs, direction = "left", onSelect }) => {
   const animationClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
 
   return (
-    <div className="overflow-hidden py-4 group/marquee">
-      <div
-        className={`flex gap-6 w-max ${animationClass} group-hover/marquee:[animation-play-state:paused]`}
-      >
-        {/* Duplicate items for seamless loop */}
+    <div className="overflow-hidden py-3">
+      <div className={`flex gap-5 w-max ${animationClass}`}>
         {[...certs, ...certs].map((cert, i) => (
           <CertCard
             key={`${cert.id}-${i}`}
@@ -239,7 +238,6 @@ const Certifications: React.FC = () => {
       cert.issuer.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Split into rows for marquee
   const half = Math.ceil(filtered.length / 2);
   const row1 = filtered.slice(0, half);
   const row2 = filtered.slice(half);
@@ -255,7 +253,6 @@ const Certifications: React.FC = () => {
             subtitle="Professional certifications and qualifications"
           />
 
-          {/* Search */}
           <div className="mb-8 max-w-md mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
@@ -269,17 +266,16 @@ const Certifications: React.FC = () => {
             </div>
           </div>
 
-          {/* Marquee or static grid when searching */}
           {isSearching ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-7xl mx-auto">
               {filtered.map((cert) => (
-                <div key={cert.id} className="flex justify-center">
+                <div key={cert.id}>
                   <CertCard cert={cert} onClick={() => cert.image && setSelectedImage(cert.image)} />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-1">
               <MarqueeRow certs={row1} direction="left" onSelect={setSelectedImage} />
               <MarqueeRow certs={row2} direction="right" onSelect={setSelectedImage} />
             </div>
@@ -287,7 +283,6 @@ const Certifications: React.FC = () => {
         </Section>
       </div>
 
-      {/* Lightbox */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-pointer"
