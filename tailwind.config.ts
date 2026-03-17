@@ -110,30 +110,20 @@ export default {
 					'0%': { transform: 'translateX(100%)' },
 					'100%': { transform: 'translateX(0)' }
 				},
-			'scale-in': {
-				'0%': { transform: 'scale(0.95)', opacity: '0' },
-				'100%': { transform: 'scale(1)', opacity: '1' }
+				'scale-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
 			},
-			'marquee-left': {
-				'0%': { transform: 'translateX(0)' },
-				'100%': { transform: 'translateX(-50%)' },
-			},
-			'marquee-right': {
-				'0%': { transform: 'translateX(-50%)' },
-				'100%': { transform: 'translateX(0)' },
-			},
-		},
-		animation: {
-			'accordion-down': 'accordion-down 0.2s ease-out',
-			'accordion-up': 'accordion-up 0.2s ease-out',
-			'fade-in': 'fade-in 0.5s ease-out',
-			'fade-up': 'fade-up 0.7s ease-out',
-			'float': 'float 3s ease-in-out infinite',
-			'slide-in-right': 'slide-in-right 0.3s ease-out',
-			'scale-in': 'scale-in 0.2s ease-out',
-			'marquee-left': 'marquee-left 40s linear infinite',
-			'marquee-right': 'marquee-right 40s linear infinite',
-		}
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-up': 'fade-up 0.7s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'slide-in-right': 'slide-in-right 0.3s ease-out',
+				'scale-in': 'scale-in 0.2s ease-out',
+			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

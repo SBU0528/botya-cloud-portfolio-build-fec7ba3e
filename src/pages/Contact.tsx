@@ -1,3 +1,4 @@
+
 "use client";
 import { useState } from "react";
 import Layout from "@/components/Layout";
@@ -78,39 +79,42 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Form */}
             <div className="animate-fade-up">
-              <div className="bg-card p-8 rounded-lg shadow-md border border-border">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Send a Message</h3>
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-2xl font-bold text-navy mb-6">Send a Message</h3>
 
                 {isSubmitted ? (
-                  <div className="p-6 bg-primary/10 rounded-lg text-center">
-                    <h4 className="text-xl font-medium text-primary mb-2">Thanks! Check your inbox.</h4>
-                    <p className="text-muted-foreground">A confirmation was sent to <strong>{formData.email || "your email"}</strong>.</p>
+                  <div className="p-6 bg-green-50 rounded-lg text-center">
+                    <h4 className="text-xl font-medium text-green-700 mb-2">Thanks! Check your inbox.</h4>
+                    <p className="text-green-600">A confirmation was sent to <strong>{formData.email || "your email"}</strong>.</p>
                     <Button onClick={() => setIsSubmitted(false)} className="mt-6">Send Another</Button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">Your Name</label>
+                      <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
                       <Input
                         id="name" name="name" type="text" required
                         value={formData.name} onChange={handleChange}
                         placeholder="John Doe"
+                        className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">Email</label>
+                      <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
                       <Input
                         id="email" name="email" type="email" required
                         value={formData.email} onChange={handleChange}
                         placeholder="you@example.com"
+                        className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">Message</label>
+                      <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
                       <Textarea
                         id="message" name="message" rows={6} required
                         value={formData.message} onChange={handleChange}
                         placeholder="How can I help?"
+                        className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                     </div>
                     <Button type="submit" disabled={isSubmitting} className="w-full">
@@ -129,7 +133,7 @@ const Contact = () => {
                   botyasibusiso@gmail.com
                 </ContactInfo>
                 <ContactInfo icon={<Linkedin />} label="LinkedIn" href="https://linkedin.com/in/sibusiso-botya-7a807224a">
-                  linkedin.com/in/sibusiso-botya
+                  linkedin.com/in/sibusiso-botya-7a807224a
                 </ContactInfo>
                 <ContactInfo icon={<Github />} label="GitHub" href="https://github.com/SBU0528">
                   github.com/SBU0528
@@ -152,13 +156,13 @@ const Contact = () => {
         {/* Google Map Section */}
         <Section background="gray" padding="lg">
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-foreground mb-8 text-center animate-fade-up">
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-navy mb-8 text-center animate-fade-up">
               Find Me Here
             </h3>
             <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              <div className="bg-card p-4 rounded-lg shadow-md border border-border">
+              <div className="bg-white p-4 rounded-lg shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=3739+Geya+Crescent,+Old+Crossroads,+Nyanga,+Cape+Town,+South+Africa&zoom=16"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d18.5975!3d-33.9872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc49e1e1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sOld%20Crossroads%2C%20Nyanga%2C%20Cape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
                   className="w-full h-64 md:h-96 rounded-lg border-0"
                   style={{ border: 0 }}
                   allowFullScreen
