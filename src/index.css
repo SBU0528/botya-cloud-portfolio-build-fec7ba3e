@@ -155,3 +155,15 @@
   to { background-position: 100% 100%; }
 }
 
+/* Marquee animations for certificate rows */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+
