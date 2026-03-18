@@ -85,11 +85,67 @@ const certifications = [
     image: "/lovable-uploads/Coursera-YWRXVNNMICFJ.png",
     link: "https://coursera.org/verify/YWRXVNNMICFJ",
   },
+  // New certificates
+  {
+    id: "72MIK4N4HQ6H",
+    title: "Grit and Growth Mindset",
+    provider: "Arizona State University",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-72MIK4N4HQ6H.png",
+    link: "https://coursera.org/verify/72MIK4N4HQ6H",
+  },
+  {
+    id: "69GPATQJ4299",
+    title: "Introduction to Personal Branding",
+    provider: "University of Virginia",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-69GPATQJ4299.png",
+    link: "https://coursera.org/verify/69GPATQJ4299",
+  },
+  {
+    id: "4FLIYFX5KSN5",
+    title: "Introduction to Cloud Computing",
+    provider: "IBM",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-4FLIYFX5KSN5.png",
+    link: "https://coursera.org/verify/4FLIYFX5KSN5",
+  },
+  {
+    id: "0AY0X7JIOQ83",
+    title: "Introduction to Hardware and Operating Systems",
+    provider: "IBM",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-0AY0X7JIOQ83.png",
+    link: "https://coursera.org/verify/0AY0X7JIOQ83",
+  },
+  {
+    id: "5C55GRQPEBVI",
+    title: "Generative AI: Introduction and Applications",
+    provider: "IBM",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-5C55GRQPEBVI.png",
+    link: "https://coursera.org/verify/5C55GRQPEBVI",
+  },
+  {
+    id: "9B60KURFZYNA",
+    title: "Positive Psychology: Resilience Skills",
+    provider: "University of Pennsylvania",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-9B60KURFZYNA.png",
+    link: "https://coursera.org/verify/9B60KURFZYNA",
+  },
 ];
 
-// Split into rows of 5
-const row1 = certifications.slice(0, 5);
-const row2 = certifications.slice(5, 10);
+// Split into rows of 5, alternating directions
+const rows: { certs: typeof certifications; direction: "left" | "right"; speed: number }[] = [];
+for (let i = 0; i < certifications.length; i += 5) {
+  const rowIndex = rows.length;
+  rows.push({
+    certs: certifications.slice(i, i + 5),
+    direction: rowIndex % 2 === 0 ? "left" : "right",
+    speed: 45 + rowIndex * 5,
+  });
+}
 
 const Certifications: React.FC = () => {
   return (
@@ -102,8 +158,14 @@ const Certifications: React.FC = () => {
           />
 
           <div className="mt-10 space-y-6">
-            <CertificateMarquee certs={row1} direction="left" speed={45} />
-            <CertificateMarquee certs={row2} direction="right" speed={50} />
+            {rows.map((row, idx) => (
+              <CertificateMarquee
+                key={idx}
+                certs={row.certs}
+                direction={row.direction}
+                speed={row.speed}
+              />
+            ))}
           </div>
 
           <p className="text-center text-sm text-muted-foreground mt-8">
