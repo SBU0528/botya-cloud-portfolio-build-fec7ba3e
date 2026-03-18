@@ -115,29 +115,32 @@ const Contact = () => {
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
                       <Input
-                        id="name" name="name" type="text" required
+                        id="name" name="name" type="text" required maxLength={100}
                         value={formData.name} onChange={handleChange}
                         placeholder="John Doe"
                         className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
+                      {fieldErrors.name && <p className="text-sm text-destructive mt-1">{fieldErrors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
                       <Input
-                        id="email" name="email" type="email" required
+                        id="email" name="email" type="email" required maxLength={255}
                         value={formData.email} onChange={handleChange}
                         placeholder="you@example.com"
                         className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
+                      {fieldErrors.email && <p className="text-sm text-destructive mt-1">{fieldErrors.email}</p>}
                     </div>
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
                       <Textarea
-                        id="message" name="message" rows={6} required
+                        id="message" name="message" rows={6} required maxLength={5000}
                         value={formData.message} onChange={handleChange}
                         placeholder="How can I help?"
                         className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
+                      {fieldErrors.message && <p className="text-sm text-destructive mt-1">{fieldErrors.message}</p>}
                     </div>
                     <Button type="submit" disabled={isSubmitting} className="w-full">
                       {isSubmitting ? "Sending..." : "Send Message"}
