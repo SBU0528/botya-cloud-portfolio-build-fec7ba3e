@@ -9,20 +9,42 @@ import { Mail, Phone, Linkedin, Github, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Please enter a valid email address").max(255, "Email must be less than 255 characters"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(5000, "Message must be less than 5000 characters"),
+});
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors(prev => ({ ...prev, [name]: "" }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const errors: Record<string, string> = {};
+      result.error.errors.forEach(err => {
+        if (err.path[0]) errors[err.path[0] as string] = err.message;
+      });
+      setFieldErrors(errors);
+      return;
+    }
+    setFieldErrors({});
     setIsSubmitting(true);
 
     try {
@@ -33,10 +55,10 @@ const Contact = () => {
           "Accept": "application/json"
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _replyto: formData.email,
+          name: result.data.name,
+          email: result.data.email,
+          message: result.data.message,
+          _replyto: result.data.email,
           _subject: "New message from portfolio"
         }),
       });
@@ -51,14 +73,14 @@ const Contact = () => {
           duration: 5000,
         });
       } else {
-        console.error("Formspree error response:", data);
-        throw new Error(data.error || "Formspree submission failed");
+        if (import.meta.env.DEV) console.error("Formspree error response:", data);
+        throw new Error("Submission failed");
       }
     } catch (error: any) {
-      console.error("Submission error:", error);
+      if (import.meta.env.DEV) console.error("Submission error:", error);
       toast({
         title: "Error Sending Message",
-        description: error.message || "Please try again later or email me directly.",
+        description: "Something went wrong. Please try again or email me directly.",
         variant: "destructive",
         duration: 5000,
       });
