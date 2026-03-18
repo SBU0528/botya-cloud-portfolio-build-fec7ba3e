@@ -134,6 +134,14 @@ const certifications = [
     image: "/lovable-uploads/Coursera-9B60KURFZYNA.png",
     link: "https://coursera.org/verify/9B60KURFZYNA",
   },
+  {
+    id: "7I6K1AXUNR0I",
+    title: "Leading with Impact: Team Dynamics, Strategy and Ethics",
+    provider: "Coursera Instructor Network",
+    year: "2025",
+    image: "/lovable-uploads/Coursera-7I6K1AXUNR0I.png",
+    link: "https://coursera.org/verify/7I6K1AXUNR0I",
+  },
 ];
 
 // Split into rows of 5, alternating directions
