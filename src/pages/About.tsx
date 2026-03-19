@@ -38,14 +38,24 @@ const About: React.FC = () => {
               </p>
 
               {/* Download CV Button */}
-              <a
-                href="/sibusiso-botya-cv.pdf"
-                download
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-4 rounded transition duration-300"
-              >
-                <Download className="h-5 w-5" />
-                Download My CV
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/sibusiso-botya-cv.pdf"
+                  download
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-4 rounded transition duration-300"
+                >
+                  <Download className="h-5 w-5" />
+                  Download My CV
+                </a>
+                <a
+                  href="/sibusiso-botya-cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary/10 font-bold py-2 px-4 rounded transition duration-300"
+                >
+                  View CV
+                </a>
+              </div>
             </section>
           </div>
         </Section>
