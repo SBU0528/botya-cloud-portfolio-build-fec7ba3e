@@ -114,10 +114,10 @@ const Education = () => {
                         <Briefcase size={28} className="text-skyblue" />
                       </div>
                       <div className="flex-1">
-                        <span className="text-skyblue text-lg font-semibold">2025 - Present</span>
+                        <span className="text-skyblue text-lg font-semibold">Feb 2025 – Mar 2026</span>
                         <h3 className="text-xl font-bold mt-1 mb-2 text-navy">Cloud Associate</h3>
                         <p className="text-gray-600">
-                          Working with cloud technologies to design, implement, and maintain scalable and secure cloud infrastructure solutions.
+                          Worked with cloud technologies to design, implement, and maintain scalable and secure cloud infrastructure solutions.
                         </p>
                       </div>
                     </div>
