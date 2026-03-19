@@ -5,15 +5,7 @@ import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import { User, Server, Database, Network, Download } from "lucide-react";
 
-// Import your CV image from src/assets so that bundler handles it
-import cvImage from "@/assets/Sibusiso-Botya_Cloud_CV2025.jpg";
-
 const About: React.FC = () => {
-  const [showCV, setShowCV] = useState(false);
-
-  const toggleCV = () => {
-    setShowCV(!showCV);
-  };
 
   return (
     <Layout>
