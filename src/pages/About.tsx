@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
-import { User, Server, Database, Network } from "lucide-react";
+import { User, Server, Database, Network, Download } from "lucide-react";
 
 // Import your CV image from src/assets so that bundler handles it
 import cvImage from "@/assets/Sibusiso-Botya_Cloud_CV2025.jpg";
