@@ -37,24 +37,15 @@ const About: React.FC = () => {
                 Currently, I am expanding my skill set as a Cloud Associate at CAPACITI, driving my career forward in cloud computing.
               </p>
 
-              {/* CV View Button */}
-              <button
-                onClick={toggleCV}
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+              {/* Download CV Button */}
+              <a
+                href="/sibusiso-botya-cv.pdf"
+                download
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-4 rounded transition duration-300"
               >
-                🖼️ {showCV ? "Hide My CV" : "View My CV"}
-              </button>
-
-              {/* CV Display */}
-              {showCV && (
-                <div className="mt-6">
-                  <img
-                    src="/Sibusiso-Botya_CV.jpg/Sibusiso-Botya_Cloud_CV2025.jpg"
-                    alt="Sibusiso Botya CV"
-                    className="w-full rounded-lg shadow-lg border border-gray-200"
-                  />
-                </div>
-              )}
+                <Download className="h-5 w-5" />
+                Download My CV
+              </a>
             </section>
           </div>
         </Section>
