@@ -6,6 +6,14 @@ import Section from "@/components/Section";
 import { User, Server, Database, Network, Download } from "lucide-react";
 
 const About: React.FC = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/sibusiso-botya-cv.pdf";
+    link.download = "Sibusiso_Botya_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <Layout>
@@ -38,14 +46,13 @@ const About: React.FC = () => {
               </p>
 
               {/* Download CV Button */}
-              <a
-                href="/sibusiso-botya-cv.pdf"
-                download
+              <button
+                onClick={handleDownloadCV}
                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-4 rounded transition duration-300"
               >
                 <Download className="h-5 w-5" />
                 Download My CV
-              </a>
+              </button>
             </section>
           </div>
         </Section>
