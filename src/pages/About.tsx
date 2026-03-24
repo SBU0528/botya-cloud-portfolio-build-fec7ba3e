@@ -6,6 +6,14 @@ import Section from "@/components/Section";
 import { User, Server, Database, Network, Download } from "lucide-react";
 
 const About: React.FC = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/sibusiso-botya-cv.pdf";
+    link.download = "Sibusiso_Botya_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <Layout>
