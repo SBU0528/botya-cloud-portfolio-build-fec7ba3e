@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
-import { Mail, Phone, Linkedin, Github, MapPin } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -101,6 +101,9 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Form */}
             <div className="animate-fade-up">
+              <div className="rounded-lg px-4 py-3 text-center mb-4" style={{ backgroundColor: '#dcfce7', color: '#166534' }}>
+                ✅ Currently open to new opportunities
+              </div>
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-bold text-navy mb-6">Send a Message</h3>
 
@@ -137,7 +140,7 @@ const Contact = () => {
                       <Textarea
                         id="message" name="message" rows={6} required maxLength={5000}
                         value={formData.message} onChange={handleChange}
-                        placeholder="How can I help?"
+                        placeholder="Tell me about your project or inquiry..."
                         className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-skyblue"
                       />
                       {fieldErrors.message && <p className="text-sm text-destructive mt-1">{fieldErrors.message}</p>}
@@ -145,6 +148,7 @@ const Contact = () => {
                     <Button type="submit" disabled={isSubmitting} className="w-full">
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
+                    <p className="text-center text-sm text-muted-foreground">I typically respond within 24 hours</p>
                   </form>
                 )}
               </div>
@@ -163,14 +167,11 @@ const Contact = () => {
                 <ContactInfo icon={<Github />} label="GitHub" href="https://github.com/SBU0528">
                   github.com/SBU0528
                 </ContactInfo>
-                <ContactInfo icon={<Phone />} label="Phone" href="tel:+27744717519">
-                  074 471 7519
-                </ContactInfo>
                 <div className="flex items-start">
                   <div className="bg-skyblue p-3 rounded-full mr-4"><MapPin className="h-6 w-6 text-white"/></div>
                   <div>
                     <h4 className="font-medium text-lg mb-1">Location</h4>
-                    <p className="text-gray-300">3739 Geya Crescent<br />Old Crossroads, Nyanga<br />Cape Town, South Africa</p>
+                    <p className="text-gray-300">Cape Town, South Africa</p>
                   </div>
                 </div>
               </div>
@@ -178,27 +179,6 @@ const Contact = () => {
           </div>
         </Section>
 
-        {/* Google Map Section */}
-        <Section background="gray" padding="lg">
-          <div className="max-w-6xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-navy mb-8 text-center animate-fade-up">
-              Find Me Here
-            </h3>
-            <div className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              <div className="bg-white p-4 rounded-lg shadow-md">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d18.5975!3d-33.9872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc49e1e1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2sOld%20Crossroads%2C%20Nyanga%2C%20Cape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza"
-                  className="w-full h-64 md:h-96 rounded-lg border-0"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Sibusiso Botya Location - 3739 Geya Crescent, Old Crossroads, Nyanga, Cape Town"
-                />
-              </div>
-            </div>
-          </div>
-        </Section>
       </div>
     </Layout>
   );
