@@ -144,7 +144,6 @@ const Contact = () => {
                     </Button>
                     <p className="text-center text-sm text-muted-foreground">I typically respond within 24 hours</p>
                   </form>
-                )}
               </div>
             </div>
 
