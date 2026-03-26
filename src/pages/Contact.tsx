@@ -55,23 +55,25 @@ const Contact = () => {
           "Accept": "application/json"
         },
         body: JSON.stringify({
-          name: result.data.name,
-          email: result.data.email,
-          message: result.data.message,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
         }),
       });
 
-      const data = await res.json();
       if (res.ok) {
         setFormData({ name: "", email: "", message: "" });
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 4000);
       } else {
-        if (import.meta.env.DEV) console.error("Formspree error response:", data);
-        throw new Error("Submission failed");
+        toast({
+          title: "Error Sending Message",
+          description: "Something went wrong. Please try again or email me directly.",
+          variant: "destructive",
+          duration: 5000,
+        });
       }
-    } catch (error: any) {
-      if (import.meta.env.DEV) console.error("Submission error:", error);
+    } catch {
       toast({
         title: "Error Sending Message",
         description: "Something went wrong. Please try again or email me directly.",
