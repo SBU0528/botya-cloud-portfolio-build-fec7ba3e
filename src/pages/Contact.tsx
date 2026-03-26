@@ -58,8 +58,6 @@ const Contact = () => {
           name: result.data.name,
           email: result.data.email,
           message: result.data.message,
-          _replyto: result.data.email,
-          _subject: "New message from portfolio"
         }),
       });
 
