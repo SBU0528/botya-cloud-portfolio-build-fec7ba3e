@@ -22,7 +22,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -66,12 +66,8 @@ const Contact = () => {
       const data = await res.json();
       if (res.ok) {
         setFormData({ name: "", email: "", message: "" });
-        setIsSubmitted(true);
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for reaching out! A confirmation email is on its way.",
-          duration: 5000,
-        });
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 4000);
       } else {
         if (import.meta.env.DEV) console.error("Formspree error response:", data);
         throw new Error("Submission failed");
@@ -107,14 +103,12 @@ const Contact = () => {
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-bold text-navy mb-6">Send a Message</h3>
 
-                {isSubmitted ? (
-                  <div className="p-6 bg-green-50 rounded-lg text-center">
-                    <h4 className="text-xl font-medium text-green-700 mb-2">Thanks! Check your inbox.</h4>
-                    <p className="text-green-600">A confirmation was sent to <strong>{formData.email || "your email"}</strong>.</p>
-                    <Button onClick={() => setIsSubmitted(false)} className="mt-6">Send Another</Button>
+                {showSuccess && (
+                  <div className="rounded-lg px-4 py-3 text-center mb-4" style={{ backgroundColor: '#dcfce7', color: '#166534' }}>
+                    ✅ Message sent! I will get back to you within 24 hours.
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                )}
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-1">Your Name</label>
                       <Input
@@ -150,7 +144,6 @@ const Contact = () => {
                     </Button>
                     <p className="text-center text-sm text-muted-foreground">I typically respond within 24 hours</p>
                   </form>
-                )}
               </div>
             </div>
 
