@@ -66,12 +66,8 @@ const Contact = () => {
       const data = await res.json();
       if (res.ok) {
         setFormData({ name: "", email: "", message: "" });
-        setIsSubmitted(true);
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for reaching out! A confirmation email is on its way.",
-          duration: 5000,
-        });
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 4000);
       } else {
         if (import.meta.env.DEV) console.error("Formspree error response:", data);
         throw new Error("Submission failed");
